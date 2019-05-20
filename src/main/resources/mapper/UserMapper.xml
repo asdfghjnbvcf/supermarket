@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+        <mapper namespace="com.etc.user.dao.UserMapper">
+            <resultMap id="BaseResultMap" type="com.etc.entity.User">
+                <id column="userId" jdbcType="INTEGER" property="userid" />
+                <result column="userName" jdbcType="VARCHAR" property="username" />
+                <result column="userPwd" jdbcType="VARCHAR" property="userpwd" />
+                <result column="userSex" jdbcType="VARCHAR" property="usersex" />
+                <result column="userTel" jdbcType="VARCHAR" property="usertel" />
+                <result column="userAddress" jdbcType="VARCHAR" property="useraddress" />
+                <result column="userLevel" jdbcType="INTEGER" property="userlevel" />
+                <result column="userState" jdbcType="INTEGER" property="userstate" />
+            </resultMap>
+            <sql id="Base_Column_List">
+    userId, userName, userPwd, userSex, userTel, userAddress, userLevel, userState
+  </sql>
+            <!--   查询分页 -->
+            <select id="getUserByPage" resultMap="BaseResultMap">
+                select
+        <include refid="Base_Column_List" /> from user
+        where userName like concat('%',#{content},'%') limit #{start},#{pageSize}
+    </select>
+    <!--   统计所有模糊查询的条数 一定要加结果的类型 -->
+    <select id="getTotal" resultType="java.lang.Integer">
+    select count(*) from user where userName like concat('%',#{content},'%')
+  </select>
+    <!--   根据id查找单个 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where userId = #{userid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where userId = #{userid,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.etc.entity.User">
+    insert into user (userId, userName, userPwd,
+      userSex, userTel, userAddress,
+      userLevel, userState)
+    values (null, #{username,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR},
+      #{usersex,jdbcType=VARCHAR}, #{usertel,jdbcType=VARCHAR}, #{useraddress,jdbcType=VARCHAR},
+      #{userlevel,jdbcType=INTEGER}, #{userstate,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="com.etc.entity.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                userId,
+            </if>
+            <if test="username != null">
+                userName,
+            </if>
+            <if test="userpwd != null">
+                userPwd,
+            </if>
+            <if test="usersex != null">
+                userSex,
+            </if>
+            <if test="usertel != null">
+                userTel,
+            </if>
+            <if test="useraddress != null">
+                userAddress,
+            </if>
+            <if test="userlevel != null">
+                userLevel,
+            </if>
+            <if test="userstate != null">
+                userState,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                #{userid,jdbcType=INTEGER},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="userpwd != null">
+                #{userpwd,jdbcType=VARCHAR},
+            </if>
+            <if test="usersex != null">
+                #{usersex,jdbcType=VARCHAR},
+            </if>
+            <if test="usertel != null">
+                #{usertel,jdbcType=VARCHAR},
+            </if>
+            <if test="useraddress != null">
+                #{useraddress,jdbcType=VARCHAR},
+            </if>
+            <if test="userlevel != null">
+                #{userlevel,jdbcType=INTEGER},
+            </if>
+            <if test="userstate != null">
+                #{userstate,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.User">
+        update user
+        <set>
+            <if test="username != null">
+                userName = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="userpwd != null">
+                userPwd = #{userpwd,jdbcType=VARCHAR},
+            </if>
+            <if test="usersex != null">
+                userSex = #{usersex,jdbcType=VARCHAR},
+            </if>
+            <if test="usertel != null">
+                userTel = #{usertel,jdbcType=VARCHAR},
+            </if>
+            <if test="useraddress != null">
+                userAddress = #{useraddress,jdbcType=VARCHAR},
+            </if>
+            <if test="userlevel != null">
+                userLevel = #{userlevel,jdbcType=INTEGER},
+            </if>
+            <if test="userstate != null">
+                userState = #{userstate,jdbcType=INTEGER},
+            </if>
+        </set>
+        where userId = #{userid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.etc.entity.User">
+    update user
+    set userName = #{username,jdbcType=VARCHAR},
+      userPwd = #{userpwd,jdbcType=VARCHAR},
+      userSex = #{usersex,jdbcType=VARCHAR},
+      userTel = #{usertel,jdbcType=VARCHAR},
+      userAddress = #{useraddress,jdbcType=VARCHAR},
+      userLevel = #{userlevel,jdbcType=INTEGER},
+      userState = #{userstate,jdbcType=INTEGER}
+    where userId = #{userid,jdbcType=INTEGER}
+  </update>
+
+</mapper>
