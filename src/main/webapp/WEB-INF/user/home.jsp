@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
+  User: 蒋丽娟
   Date: 2019/5/21
   Time: 20:22
   To change this template use File | Settings | File Templates.
@@ -113,35 +113,12 @@
                                                         <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
                                                         <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
                                                         <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
                                                     </dl>
                                                     <dl class="dl-sort">
                                                         <dt><span title="蛋糕">点心</span></dt>
                                                         <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
                                                         <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
                                                         <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-                                                    </dl>
-
-                                                </div>
-                                                <div class="brand-side">
-                                                    <dl class="dl-sort"><dt><span>实力商家</span></dt>
-                                                        <dd><a rel="nofollow" title="呵官方旗舰店" target="_blank" href="#" rel="nofollow"><span  class="red" >呵官方旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="格瑞旗舰店" target="_blank" href="#" rel="nofollow"><span >格瑞旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="飞彦大厂直供" target="_blank" href="#" rel="nofollow"><span  class="red" >飞彦大厂直供</span></a></dd>
-                                                        <dd><a rel="nofollow" title="红e·艾菲妮" target="_blank" href="#" rel="nofollow"><span >红e·艾菲妮</span></a></dd>
-                                                        <dd><a rel="nofollow" title="本真旗舰店" target="_blank" href="#" rel="nofollow"><span  class="red" >本真旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="杭派女装批发网" target="_blank" href="#" rel="nofollow"><span  class="red" >杭派女装批发网</span></a></dd>
                                                     </dl>
                                                 </div>
                                             </div>
@@ -164,44 +141,20 @@
                                                         <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
                                                         <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
                                                         <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+
                                                     </dl>
                                                     <dl class="dl-sort">
                                                         <dt><span title="薯片">薯片</span></dt>
                                                         <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
                                                         <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
                                                         <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+
                                                     </dl>
                                                     <dl class="dl-sort">
                                                         <dt><span title="蛋糕">虾条</span></dt>
                                                         <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
                                                         <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-                                                    </dl>
-                                                </div>
-                                                <div class="brand-side">
-                                                    <dl class="dl-sort"><dt><span>实力商家</span></dt>
-                                                        <dd><a rel="nofollow" title="YYKCLOT" target="_blank" href="#" rel="nofollow"><span  class ="red" >YYKCLOT</span></a></dd>
-                                                        <dd><a rel="nofollow" title="池氏品牌男装" target="_blank" href="#" rel="nofollow"><span  class ="red" >池氏品牌男装</span></a></dd>
-                                                        <dd><a rel="nofollow" title="男装日志" target="_blank" href="#" rel="nofollow"><span >男装日志</span></a></dd>
-                                                        <dd><a rel="nofollow" title="索比诺官方旗舰店" target="_blank" href="#" rel="nofollow"><span >索比诺官方旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="onTTno傲徒" target="_blank" href="#" rel="nofollow"><span  class ="red" >onTTno傲徒</span></a></dd>
-                                                        <dd><a rel="nofollow" title="玛狮路男装旗舰店" target="_blank" href="#" rel="nofollow"><span >玛狮路男装旗舰店</span></a></dd>
-                                                        <dd><a rel="nofollow" title="劳威特品牌男装" target="_blank" href="#" rel="nofollow"><span >劳威特品牌男装</span></a></dd>
-                                                        <dd><a rel="nofollow" title="卡斯郎世家批发城" target="_blank" href="#" rel="nofollow"><span  class ="red" >卡斯郎世家批发城</span></a></dd>
+
                                                     </dl>
                                                 </div>
                                             </div>
@@ -223,25 +176,17 @@
                                                         <dt><span title="猪肉脯">猪肉脯</span></dt>
                                                         <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
                                                         <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+
                                                     </dl>
                                                     <dl class="dl-sort">
                                                         <dt><span title="牛肉丝">牛肉丝</span></dt>
                                                         <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
                                                         <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
                                                         <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
                                                     </dl>
                                                     <dl class="dl-sort">
                                                         <dt><span title="小香肠">小香肠</span></dt>
                                                         <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
                                                     </dl>
                                                 </div>
                                                 <div class="brand-side">
@@ -793,21 +738,6 @@
         </div>
     </div>
     <div class="clear "></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div id="f7">
         <!--甜点-->
 

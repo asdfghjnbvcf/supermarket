@@ -172,6 +172,7 @@
             <div class="tb-detail-list">
                 <!--价格-->
                 <div class="tb-detail-price">
+
                     <li class="price iteminfo_price">
                         <dt>促销价</dt>
                         <dd><em>¥</em><b class="sys_item_price">56.90</b>  </dd>
@@ -183,29 +184,6 @@
                     <div class="clear"></div>
                 </div>
 
-                <!--地址-->
-                <dl class="iteminfo_parameter freight">
-                    <dt>配送至</dt>
-                    <div class="iteminfo_freprice">
-                        <div class="am-form-content address">
-                            <select data-am-selected>
-                                <option value="a">浙江省</option>
-                                <option value="b">湖北省</option>
-                            </select>
-                            <select data-am-selected>
-                                <option value="a">温州市</option>
-                                <option value="b">武汉市</option>
-                            </select>
-                            <select data-am-selected>
-                                <option value="a">瑞安区</option>
-                                <option value="b">洪山区</option>
-                            </select>
-                        </div>
-                        <div class="pay-logis">
-                            快递<b class="sys_item_freprice">10</b>元
-                        </div>
-                    </div>
-                </dl>
                 <div class="clear"></div>
 
                 <!--销量-->
@@ -240,23 +218,23 @@
 
                                     <div class="theme-signin-left">
 
-                                        <div class="theme-options">
-                                            <div class="cart-title">口味</div>
+                                      <div class="theme-options">
+                                            <div class="cart-title"></div>
                                             <ul>
-                                                <li class="sku-line selected">原味<i></i></li>
-                                                <li class="sku-line">奶油<i></i></li>
-                                                <li class="sku-line">炭烧<i></i></li>
-                                                <li class="sku-line">咸香<i></i></li>
+                                                <li class="sku-line"><i></i></li>
+                                                <li class="sku-line"><i></i></li>
+                                                <li class="sku-line"><i></i></li>
+                                                <li class="sku-line"><i></i></li>
                                             </ul>
                                         </div>
-                                        <div class="theme-options">
-                                            <div class="cart-title">包装</div>
-                                            <ul>
-                                                <li class="sku-line selected">手袋单人份<i></i></li>
-                                                <li class="sku-line">礼盒双人份<i></i></li>
-                                                <li class="sku-line">全家福礼包<i></i></li>
-                                            </ul>
-                                        </div>
+                                        <%-- <div class="theme-options">
+                                             <div class="cart-title">包装</div>
+                                             <ul>
+                                                 <li class="sku-line selected">手袋单人份<i></i></li>
+                                                 <li class="sku-line">礼盒双人份<i></i></li>
+                                                 <li class="sku-line">全家福礼包<i></i></li>
+                                             </ul>
+                                         </div>--%>
                                         <div class="theme-options">
                                             <div class="cart-title number">数量</div>
                     <dd>
@@ -296,7 +274,10 @@
     <div class="hot">
         <dt class="tb-metatit">店铺优惠</dt>
         <div class="gold-list">
-            <p>购物满2件打8折，满3件7折<span>点击领券<i class="am-icon-sort-down"></i></span></p>
+            <p><span><i class="am-icon-sort-down"></i></span></p>
+        </div>
+        <div class="gold-list">
+            <p>购物满20减3，满30减5，满50减10<span>点击领券<i class="am-icon-sort-down"></i></span></p>
         </div>
     </div>
     <div class="clear"></div>
@@ -304,9 +285,9 @@
         <dt class="tb-metatit">优惠券</dt>
         <div class="gold-list">
             <ul>
-                <li>125减5</li>
-                <li>198减10</li>
-                <li>298减20</li>
+                <li>20减3</li>
+                <li>30减5</li>
+                <li>50减10</li>
             </ul>
         </div>
     </div>
