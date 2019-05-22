@@ -6,7 +6,9 @@ spring:
     password: root
   redis:
     password:
-server:
-  port: 7777
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
 mybatis:
   mapper-locations: classpath:mapper/*.xml
