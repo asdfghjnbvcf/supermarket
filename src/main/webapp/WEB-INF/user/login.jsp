@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>z
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <head lang="en">
@@ -25,12 +25,12 @@
 <body>
 
 <div class="login-boxtitle">
-    <a href="home.html"><img alt="logo" src="${path}/${path}/images/logobig.png" /></a
+    <a href="home.html"><img alt="logo" src="${path}/images/logo.png" /></a>
 </div>
 
 <div class="login-banner">
     <div class="login-main">
-        <div class="login-banner-bg"><span></span><img src="${path}/${path}/images/big.jpg" /></div>
+        <div class="login-banner-bg"><span></span><img src="${path}/images/big.jpg" /></div>
         <div class="login-box">
 
             <h3 class="title">登录商城</h3>
