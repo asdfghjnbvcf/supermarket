@@ -127,7 +127,7 @@
                                 </div>
                                 <b class="arrow"></b>
                             </li>
-                            <li class="appliance js_toggle relative">
+                            <%--<li class="appliance js_toggle relative">
                                 <div class="category-info">
                                     <h3 class="category-name b-category-name"><i><img src="${path}/images/cookies.png"></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
                                     <em>&gt;</em></div>
@@ -566,7 +566,7 @@
                                     </div>
                                 </div>
 
-                            </li>
+                            </li>--%>
                         </ul>
                     </div>
                 </div>

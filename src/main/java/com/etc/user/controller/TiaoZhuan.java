@@ -118,6 +118,10 @@ public class TiaoZhuan {
     public String success(){
         return "user/success";
     }
+    @RequestMapping("flashSale")
+    public String flashSale(){
+        return "user/flashSale";
+    }
 
 
 
