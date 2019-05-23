@@ -32,5 +32,10 @@ public class TwoLevelServiceImpl implements TwoLevelService{
         return twoLevelDao.listTwoLevel();
     }
 
+    @Override
+    public TwoLevel getTwoLevelById ( Integer twolevelid ) {
+        return twoLevelDao.getTwoLevelById(twolevelid);
+    }
+
 
 }

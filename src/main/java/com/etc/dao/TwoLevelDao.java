@@ -10,4 +10,5 @@ import java.util.List;
 @Mapper
 public interface TwoLevelDao {
      List<TwoLevel> listTwoLevel ();
+     TwoLevel getTwoLevelById(Integer twolevelid);
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.etc.dao.ProductDisplayDao">
+    <resultMap id="BaseResultMap" type="com.etc.entity.ProductDisplay">
+        <id column="goodsid" jdbcType="INTEGER" property="goodsid" />
+        <result column="goodsname" jdbcType="VARCHAR" property="goodsname" />
+        <result column="goodsprice" jdbcType="DOUBLE" property="goodsprice" />
+        <result column="goodstitle" jdbcType="VARCHAR" property="goodstitle" />
+        <result column="twolevelid" jdbcType="INTEGER" property="twolevelid" />
+        <result column="twolevelname" jdbcType="VARCHAR" property="twolevelname" />
+        <result column="goodssalenum" jdbcType="INTEGER" property="goodssalenum" />
+        <result column="pictureurl" jdbcType="INTEGER" property="pictureurl" />
+    </resultMap>
+    <sql id="Base_Column_List">
+    goodsid, goodsname,goodsprice,goodstitle,twolevelid,twolevelname,goodssalenum,pictureurl
+  </sql>
+    <!--   查询一级分类下的所有 -->
+    <select id="listProductDisplayById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from productdisplay p where p.twolevelid= #{twolevelid,jdbcType=INTEGER}
+    </select>
+    <!--   统计点击二级分类下的所有数量 -->
+    <select id="getTotal" resultType="java.lang.Integer">
+    select count(*) from productdisplay where twolevelid=#{twolevelid,jdbcType=INTEGER}
+  </select>
+</mapper>

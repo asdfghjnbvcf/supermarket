@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("jump.action")
+@RequestMapping("user.action")
 public class TiaoZhuan {
     @RequestMapping("address")
     public String address(){
@@ -41,10 +41,6 @@ public class TiaoZhuan {
     @RequestMapping("commentList")
     public String commentList(){
         return "user/commentList";
-    }
-    @RequestMapping("home")
-    public String home(){
-        return "user/home";
     }
     @RequestMapping("idcard")
     public String idcard(){

@@ -1,8 +1,10 @@
 package com.etc.user.controller;
 
 import com.etc.entity.OneLevel;
+import com.etc.entity.ProductDisplay;
 import com.etc.entity.TwoLevel;
 import com.etc.service.OneLevelService;
+import com.etc.service.ProductDisplayService;
 import com.etc.service.TwoLevelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,15 +20,32 @@ public class HomeController {
     private OneLevelService oneLevelService;
     @Autowired
     private TwoLevelService twoLevelService;
-    @RequestMapping("level")
+    @Autowired
+    private ProductDisplayService productDisplayService;
+
+    /**
+     *
+     * @return 首页展示的一级二级控制器
+     */
+    @RequestMapping("home")
     public ModelAndView level(){
         ModelAndView mv=new ModelAndView("user/home");
         List<OneLevel> listOne=oneLevelService.listOneLevel();
         List<TwoLevel> listTwo=twoLevelService.listTwoLevel();
         mv.addObject("listOne",listOne);
         mv.addObject("listTwo",listTwo);
-        listOne.forEach(System.out::println);
-        listTwo.forEach(System.out::println);
+        return mv;
+    }
+
+    @RequestMapping("productDisplay")
+    public ModelAndView productDisplay(Integer twolevelid){
+        ModelAndView mv=new ModelAndView("user/search");
+        List<ProductDisplay> listProductDisplay=productDisplayService.listProductDisplayById(twolevelid);
+        String twolevelname=twoLevelService.getTwoLevelById(twolevelid).getTwolevelname();
+        Integer total=productDisplayService.getTotal(twolevelid);
+        mv.addObject("listProductDisplay",listProductDisplay);
+        mv.addObject("twolevelname",twolevelname);
+        mv.addObject("total",total);
         return mv;
     }
 }

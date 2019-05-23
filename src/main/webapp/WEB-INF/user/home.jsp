@@ -24,7 +24,7 @@
     <link href="${path}/css/skin.css" rel="stylesheet" type="text/css" />
     <script src="${path}/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
     <script src="${path}/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
-
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -101,7 +101,7 @@
                             <c:forEach items="${listOne}" var="one" >
                             <li class="appliance js_toggle relative first">
                                 <div class="category-info">
-                                    <h3 class="category-name b-category-name"><i><img src="${path}/images/cake.png"></i><a class="ml-22" title="点心">${one.oneLevelName}</a></h3>
+                                    <h3 class="category-name b-category-name"><i><img src="${path}/images/cake.png"></i><a class="ml-22" title="点心">${one.onelevelname}</a></h3>
                                     <em>&gt;</em></div>
                                 <div class="menu-item menu-in top">
                                     <div class="area-in">
@@ -109,9 +109,10 @@
                                             <div class="menu-srot">
                                                 <div class="sort-side">
                                                     <c:forEach items="${listTwo}" var="two">
-                                                        <c:if test="${one.oneLevelId==two.oneLevelId}">
+                                                        <c:if test="${one.onelevelid==two.onelevelid}">
                                                     <dl class="dl-sort">
-                                                        <dd><a title="蒸蛋糕" href="#"><span>${two.twoLevelName}</span></a></dd>
+                                                        <dd class=""><a title=""><span>${two.twolevelname}</span></a></dd>
+                                                        <dd class="productDisplay" style="display:none">${two.twolevelid}</dd>
                                                     </dl>
                                                         </c:if>
                                                     </c:forEach>
@@ -145,34 +146,16 @@
                     $(this).removeClass("hover")
                     $(this).children("div.menu-in").css("display", "none")
                 });
-            })
+
+                $(".dl-sort").each(function(){
+                    $(this).click(function() {
+                    var twolevelid=$(this).children(".productDisplay").text();
+                    console.log(twolevelid);
+                    window.location.href="productDisplay?twolevelid="+twolevelid;
+                });
+                });
+                })
         </script>
-
-
-
-        <!--小导航 -->
-        <div class="am-g am-g-fixed smallnav">
-            <div class="am-u-sm-3">
-                <a href="sort.html"><img src="${path}/images/navsmall.jpg" />
-                    <div class="title">商品分类</div>
-                </a>
-            </div>
-            <div class="am-u-sm-3">
-                <a href="#"><img src="${path}/images/huismall.jpg" />
-                    <div class="title">大聚惠</div>
-                </a>
-            </div>
-            <div class="am-u-sm-3">
-                <a href="index.html"><img src="${path}/images/mansmall.jpg" />
-                    <div class="title">个人中心</div>
-                </a>
-            </div>
-            <div class="am-u-sm-3">
-                <a href="#"><img src="${path}/images/moneysmall.jpg" />
-                    <div class="title">投资理财</div>
-                </a>
-            </div>
-        </div>
 
 
         <div class="clear"></div>
@@ -200,7 +183,7 @@
         <!--今日推荐 -->
 
         <div class="am-g am-g-fixed recommendation">
-            <div class="clock am-u-sm-3" ">
+            <div class="clock am-u-sm-3" >
             <img src="${path}/images/2016.png "></img>
             <p>今日<br>推荐</p>
         </div>

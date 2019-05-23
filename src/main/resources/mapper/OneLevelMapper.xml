@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.etc.dao.OneLevelDao">
     <resultMap id="BaseResultMap" type="com.etc.entity.OneLevel">
-        <id column="onelevelid" jdbcType="INTEGER" property="oneLevelId" />
-        <result column="onelevelname" jdbcType="VARCHAR" property="oneLevelName" />
+        <id column="onelevelid" jdbcType="INTEGER" property="onelevelid" />
+        <result column="onelevelname" jdbcType="VARCHAR" property="onelevelname" />
     </resultMap>
     <sql id="Base_Column_List">
     onelevelid, onelevelname

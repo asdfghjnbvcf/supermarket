@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.etc.dao.TwoLevelDao">
     <resultMap id="BaseResultMap" type="com.etc.entity.TwoLevel">
-        <id column="twolevelid" jdbcType="INTEGER" property="twoLevelId" />
-        <id column="onelevelid" jdbcType="INTEGER" property="oneLevelId" />
-        <result column="twolevelname" jdbcType="VARCHAR" property="woLevelName" />
+        <id column="twolevelid" jdbcType="INTEGER" property="twolevelid" />
+        <id column="onelevelid" jdbcType="INTEGER" property="onelevelid" />
+        <result column="twolevelname" jdbcType="VARCHAR" property="twolevelname" />
     </resultMap>
     <sql id="Base_Column_List">
    twolevelid,onelevelid, twolevelname
@@ -14,5 +14,11 @@
         select
         <include refid="Base_Column_List" />
         from twolevel
+    </select>
+    <!--  根据二级id查找对象-->
+    <select id="getTwoLevelById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from twolevel t where t.twolevelid= #{twolevelid,jdbcType=INTEGER}
     </select>
 </mapper>
