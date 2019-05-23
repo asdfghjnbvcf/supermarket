@@ -71,4 +71,8 @@ public class houtaitiaozhuan {
     public String userlist() {
         return "admin/userlist";
     }
+    @RequestMapping("facelogin")
+    public String  tofacelogin(){
+        return "admin/facelogin";
+    }
 }

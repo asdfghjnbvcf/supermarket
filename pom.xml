@@ -49,6 +49,14 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--  发送短信验证码所需要的json解析-->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20160810</version>
+        </dependency>
+
         <!--Provided  start-->
         <!--War包部署到外部的Tomcat中已经包含了这些，
           所以需要添加以下依赖
