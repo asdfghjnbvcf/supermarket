@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="${path}/layuiadmin/layui/css/layui.css" media="all">
-    <!--  <link rel="stylesheet" href="layuiadmin/style/admin.css" media="all">-->
+    < <link rel="stylesheet" href="${path}/layuiadmin/style/admin.css" media="all">
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 
@@ -62,7 +62,7 @@
             elem: '#test'
             //  ,url:'/test/table/demo1.json'
             ,
-            url: 'layuiadmin/json/useradmin/webcomment.js' //模拟接口
+            url: '' //模拟接口
             ,
             toolbar: '#toolbarDemo',
             title: '用户数据表',

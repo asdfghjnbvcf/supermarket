@@ -6,15 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-
+<c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <head>
     <meta charset="utf-8">
     <title>小馋猫超市管理系统</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <c:set value="${pageContext.request.contextPath}" var="path"></c:set>
+
     <link rel="stylesheet" href="${path}/layuiadmin/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="${path}/layuiadmin/style/admin.css" media="all">
 
@@ -72,10 +73,10 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd>
-                            <a lay-href="set/user/info.jsp">基本资料</a>
+                            <a lay-href="info">基本资料</a>
                         </dd>
                         <dd>
-                            <a lay-href="set/user/password.jsp">修改密码</a>
+                            <a lay-href="password">修改密码</a>
                         </dd>
                         <hr>
                         <dd layadmin-event="logout" style="text-align: center;">
@@ -93,7 +94,7 @@
         <!-- 侧边菜单 -->
         <div class="layui-side layui-side-menu">
             <div class="layui-side-scroll">
-                <div class="layui-logo" lay-href="console.jsp">
+                <div class="layui-logo" lay-href="console">
                     <span>小馋猫超市管理系统</span>
                 </div>
 
@@ -105,7 +106,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="console">
-                                <a lay-href="console.jsp">数据概览</a>
+                                <a lay-href="console">数据概览</a>
                             </dd>
                         </dl>
                     </li>
@@ -117,7 +118,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a lay-href="userlist.jsp">用户列表</a>
+                                <a lay-href="userList">用户列表</a>
                             </dd>
                         </dl>
                     </li>
@@ -129,7 +130,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a lay-href="employeelist.jsp">员工列表</a>
+                                <a lay-href="employeeList">员工列表</a>
                             </dd>
                         </dl>
                     </li>
@@ -142,7 +143,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a lay-href="orderlist.jsp">订单列表</a>
+                                <a lay-href="orderList">订单列表</a>
                             </dd>
                         </dl>
                     </li>
@@ -154,7 +155,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a lay-href="commoditylist.jsp">商品列表</a>
+                                <a lay-href="commodityList">商品列表</a>
                             </dd>
                         </dl>
                     </li>
@@ -167,7 +168,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a lay-href="commentlist.jsp">评论列表</a>
+                                <a lay-href="commentList">评论列表</a>
                             </dd>
                         </dl>
                     </li>
@@ -180,7 +181,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a lay-href="seckillList.jsp">秒杀商品列表</a>
+                                <a lay-href="seckillList">秒杀商品列表</a>
                             </dd>
                         </dl>
                     </li>
@@ -192,7 +193,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a lay-href="communicationList.jsp">通讯记录列表</a>
+                                <a lay-href="communicationList">通讯记录列表</a>
                             </dd>
                         </dl>
                     </li>
@@ -203,7 +204,7 @@
                             <cite>授权管理</cite> </a>
                         <dl class="layui-nav-child">
                             <dd>
-                                <a lay-href="role.jsp">权限分配</a>
+                                <a lay-href="role">权限分配</a>
                             </dd>
                         </dl>
 
@@ -236,7 +237,7 @@
             </div>
             <div class="layui-tab" lay-unauto lay-allowClose="true" lay-filter="layadmin-layout-tabs">
                 <ul class="layui-tab-title" id="LAY_app_tabsheader">
-                    <li lay-id="console.jsp" lay-attr="console.jsp" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
+                    <li lay-id="console" lay-attr="console" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
                 </ul>
             </div>
         </div>
@@ -244,7 +245,7 @@
         <!-- 主体内容 -->
         <div class="layui-body" id="LAY_app_body">
             <div class="layadmin-tabsbody-item layui-show">
-                <iframe src="console.jsp" frameborder="0" class="layadmin-iframe"></iframe>
+                <iframe src="console" frameborder="0" class="layadmin-iframe"></iframe>
             </div>
         </div>
 
@@ -253,10 +254,10 @@
     </div>
 </div>
 
-<script src="layuiadmin/layui/layui.js"></script>
+<script src="${path}/layuiadmin/layui/layui.js"></script>
 <script>
     layui.config({
-        base: 'layuiadmin/' //静态资源所在路径
+        base: '${path}/layuiadmin/' //静态资源所在路径
     }).extend({
         index: 'lib/index' //主入口模块
     }).use('index');

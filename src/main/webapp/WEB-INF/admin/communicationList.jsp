@@ -6,16 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-
+<c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <head>
     <meta charset="utf-8">
     <title>layui</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/layuiadmin/layui/css/layui.css" media="all">
-    <!--  <link rel="stylesheet" href="layuiadmin/style/admin.css" media="all">-->
+    <link rel="stylesheet" href="${path}/layuiadmin/layui/css/layui.css" media="all">
+      <link rel="stylesheet" href="${path}/layuiadmin/style/admin.css" media="all">
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 
@@ -58,7 +59,7 @@
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 
-<script src="layuiadmin/layui/layui.js"></script>
+<script src="${path}/layuiadmin/layui/layui.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 
 <script>
@@ -69,7 +70,7 @@
             elem: '#test'
             //  ,url:'/test/table/demo1.json'
             ,
-            url: 'layuiadmin/json/useradmin/weborder.js' //模拟接口
+            url: '' //模拟接口
             ,
             toolbar: '#toolbarDemo',
             title: '用户数据表',
