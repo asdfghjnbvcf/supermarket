@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.etc.dao.TwoLevelDao">
-    <resultMap id="BaseResultMap" type="com.etc.entity.TwoLevel">
+    <resultMap id="BaseResultMap1" type="com.etc.entity.TwoLevel">
         <id column="twolevelid" jdbcType="INTEGER" property="twolevelid" />
         <id column="onelevelid" jdbcType="INTEGER" property="onelevelid" />
+        <result column="twolevelname" jdbcType="VARCHAR" property="twolevelname" />
+    </resultMap>
+    <resultMap id="BaseResultMap2" type="com.etc.entity.TwoLevel">
+        <id column="twolevelid" jdbcType="INTEGER" property="twolevelid" />
+        <id column="onelevelid" jdbcType="INTEGER" property="onelevelid" />
+        <result column="onelevelname" jdbcType="VARCHAR" property="onelevelname" />
         <result column="twolevelname" jdbcType="VARCHAR" property="twolevelname" />
     </resultMap>
     <sql id="Base_Column_List">
    twolevelid,onelevelid, twolevelname
   </sql>
     <!--   查询一级分类下的所有 -->
-    <select id="listTwoLevel" resultMap="BaseResultMap">
+    <select id="listTwoLevel" resultMap="BaseResultMap1">
         select
         <include refid="Base_Column_List" />
         from twolevel
     </select>
     <!--  根据二级id查找对象-->
-    <select id="getTwoLevelById" resultMap="BaseResultMap">
+    <select id="getTwoLevelById" resultMap="BaseResultMap1">
         select
         <include refid="Base_Column_List" />
         from twolevel t where t.twolevelid= #{twolevelid,jdbcType=INTEGER}
     </select>
+    <!-- 后台查询所有并分页-->
+    <select id="listTwoLevelByPage" resultMap="BaseResultMap2">
+        SELECT t.twolevelid,t.onelevelid,o.onelevelname,t.twolevelname FROM  twolevel t JOIN onelevel o ON o.onelevelid=t.onelevelid
+        where t.twolevelname like concat('%',#{content},'%') limit #{start},#{pageSize}
+    </select>
+    <!-- 后台统计模糊查询总数-->
+    <select id="getTotal" resultType="java.lang.Integer">
+        SELECT count(*) FROM  twolevel t JOIN onelevel o ON o.onelevelid=t.onelevelid where t.twolevelname like concat('%',#{content},'%')
+    </select>
+    <!--   修改二级分类-->
+    <update id="updateByPrimaryKey" parameterType="com.etc.entity.TwoLevel">
+        update twolevel
+        <set>
+            twolevelname = #{twolevelname,jdbcType=INTEGER},
+        </set>
+        where twolevelid = #{twolevelid,jdbcType=INTEGER}
+    </update>
 </mapper>

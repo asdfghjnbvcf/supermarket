@@ -6,34 +6,37 @@ package com.etc.admin.controller;/*
  */
 
 import com.etc.entity.OneLevel;
+import com.etc.entity.TwoLevel;
 import com.etc.service.OneLevelService;
+import com.etc.service.TwoLevelService;
 import com.etc.utils.CommonMessage;
 import com.etc.utils.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 @Controller
 @RequestMapping("admin.action")
-public class OneLevelController {
+public class TwoLevelController {
     @Autowired
-    private OneLevelService oneLevelService;
-    @RequestMapping("toOneLevelList")
+    private TwoLevelService twoLevelService;
+    @RequestMapping("toTwoLevelList")
     @ResponseBody
-    public PageData<OneLevel>  level(Integer page, Integer limit, String content){
+    public PageData<TwoLevel>  level( Integer page, Integer limit, String content){
         if (content == null)
             content = "";
-        PageData<OneLevel> pd = oneLevelService.listOneLevelByPage(page,limit,content);
+        PageData<TwoLevel> pd = twoLevelService.listTwoLevelByPage(page,limit,content);
         pd.setCode(0);
         pd.setMsg("ok");
         return pd;
     }
-    @RequestMapping("editOneLvelName")
+    @RequestMapping("editTwoLvelName")
     @ResponseBody
-    public CommonMessage editOneLvelName(OneLevel oneLevel){
-        System.out.println(oneLevel);
+    public CommonMessage editOneLvelName(TwoLevel twoLevel){
+        System.out.println(twoLevel);
         CommonMessage commonMessage=new CommonMessage();
-        boolean flag=oneLevelService.updateByPrimaryKey(oneLevel);
+        boolean flag=twoLevelService.updateByPrimaryKey(twoLevel);
         if(flag){
             commonMessage.setMsg("修改成功");
         }else{
