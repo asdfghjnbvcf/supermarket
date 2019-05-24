@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.GoodsPictureDao">
+  <resultMap id="BaseResultMap" type="com.etc.entity.GoodsPicture">
+    <id column="pictureid" jdbcType="INTEGER" property="pictureid" />
+    <result column="goodsid" jdbcType="INTEGER" property="goodsid" />
+    <result column="pictureurl" jdbcType="VARCHAR" property="pictureurl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    pictureid, goodsid, pictureurl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from goodspicture
+    where pictureid = #{pictureid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from goodspicture
+    where pictureid = #{pictureid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.etc.entity.GoodsPicture">
+    insert into goodspicture (pictureid, goodsid, pictureurl
+      )
+    values (#{pictureid,jdbcType=INTEGER}, #{goodsid,jdbcType=INTEGER}, #{pictureurl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.etc.entity.GoodsPicture">
+    insert into goodspicture
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pictureid != null">
+        pictureid,
+      </if>
+      <if test="goodsid != null">
+        goodsid,
+      </if>
+      <if test="pictureurl != null">
+        pictureurl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pictureid != null">
+        #{pictureid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null">
+        #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="pictureurl != null">
+        #{pictureurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.GoodsPicture">
+    update goodspicture
+    <set>
+      <if test="goodsid != null">
+        goodsid = #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="pictureurl != null">
+        pictureurl = #{pictureurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pictureid = #{pictureid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.etc.entity.GoodsPicture">
+    update goodspicture
+    set goodsid = #{goodsid,jdbcType=INTEGER},
+      pictureurl = #{pictureurl,jdbcType=VARCHAR}
+    where pictureid = #{pictureid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.CartlistDao">
+  <resultMap id="BaseResultMap" type="com.etc.entity.CartList">
+    <id column="cartlistid" jdbcType="INTEGER" property="cartlistid" />
+    <result column="goodsid" jdbcType="INTEGER" property="goodsid" />
+    <result column="goodsnum" jdbcType="INTEGER" property="goodsnum" />
+    <result column="cartid" jdbcType="INTEGER" property="cartid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cartlistid, goodsid, goodsnum, cartid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cartlist
+    where cartlistid = #{cartlistid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cartlist
+    where cartlistid = #{cartlistid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.etc.entity.CartList">
+    insert into cartlist (cartlistid, goodsid, goodsnum, 
+      cartid)
+    values (#{cartlistid,jdbcType=INTEGER}, #{goodsid,jdbcType=INTEGER}, #{goodsnum,jdbcType=INTEGER}, 
+      #{cartid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.etc.entity.CartList">
+    insert into cartlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cartlistid != null">
+        cartlistid,
+      </if>
+      <if test="goodsid != null">
+        goodsid,
+      </if>
+      <if test="goodsnum != null">
+        goodsnum,
+      </if>
+      <if test="cartid != null">
+        cartid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cartlistid != null">
+        #{cartlistid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null">
+        #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsnum != null">
+        #{goodsnum,jdbcType=INTEGER},
+      </if>
+      <if test="cartid != null">
+        #{cartid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.CartList">
+    update cartlist
+    <set>
+      <if test="goodsid != null">
+        goodsid = #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsnum != null">
+        goodsnum = #{goodsnum,jdbcType=INTEGER},
+      </if>
+      <if test="cartid != null">
+        cartid = #{cartid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cartlistid = #{cartlistid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.etc.entity.CartList">
+    update cartlist
+    set goodsid = #{goodsid,jdbcType=INTEGER},
+      goodsnum = #{goodsnum,jdbcType=INTEGER},
+      cartid = #{cartid,jdbcType=INTEGER}
+    where cartlistid = #{cartlistid,jdbcType=INTEGER}
+  </update>
+</mapper>
