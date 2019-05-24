@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.OrderListDao">
+  <resultMap id="BaseResultMap" type="com.etc.entity.OrderList">
+    <id column="orderlistid" jdbcType="INTEGER" property="orderlistid" />
+    <result column="orderid" jdbcType="INTEGER" property="orderid" />
+    <result column="goodsid" jdbcType="INTEGER" property="goodsid" />
+    <result column="goodsnum" jdbcType="INTEGER" property="goodsnum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    orderlistid, orderid, goodsid, goodsnum
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orderlist
+    where orderlistid = #{orderlistid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orderlist
+    where orderlistid = #{orderlistid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.etc.entity.OrderList">
+    insert into orderlist (orderlistid, orderid, goodsid, 
+      goodsnum)
+    values (#{orderlistid,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{goodsid,jdbcType=INTEGER}, 
+      #{goodsnum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.etc.entity.OrderList">
+    insert into orderlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderlistid != null">
+        orderlistid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="goodsid != null">
+        goodsid,
+      </if>
+      <if test="goodsnum != null">
+        goodsnum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderlistid != null">
+        #{orderlistid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null">
+        #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsnum != null">
+        #{goodsnum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.OrderList">
+    update orderlist
+    <set>
+      <if test="orderid != null">
+        orderid = #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null">
+        goodsid = #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsnum != null">
+        goodsnum = #{goodsnum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where orderlistid = #{orderlistid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.etc.entity.OrderList">
+    update orderlist
+    set orderid = #{orderid,jdbcType=INTEGER},
+      goodsid = #{goodsid,jdbcType=INTEGER},
+      goodsnum = #{goodsnum,jdbcType=INTEGER}
+    where orderlistid = #{orderlistid,jdbcType=INTEGER}
+  </update>
+</mapper>

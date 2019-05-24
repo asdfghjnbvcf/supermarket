@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.ChatDao">
+  <resultMap id="BaseResultMap" type="com.etc.entity.Chat">
+    <id column="userchatid" jdbcType="INTEGER" property="userchatid" />
+    <result column="msg" jdbcType="VARCHAR" property="msg" />
+    <result column="from" jdbcType="VARCHAR" property="from" />
+    <result column="to" jdbcType="VARCHAR" property="to" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userchatid, msg, from, to
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from chat
+    where userchatid = #{userchatid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from chat
+    where userchatid = #{userchatid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.etc.entity.Chat">
+    insert into chat (userchatid, msg, from, 
+      to)
+    values (#{userchatid,jdbcType=INTEGER}, #{msg,jdbcType=VARCHAR}, #{from,jdbcType=VARCHAR}, 
+      #{to,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.etc.entity.Chat">
+    insert into chat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userchatid != null">
+        userchatid,
+      </if>
+      <if test="msg != null">
+        msg,
+      </if>
+      <if test="from != null">
+        from,
+      </if>
+      <if test="to != null">
+        to,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userchatid != null">
+        #{userchatid,jdbcType=INTEGER},
+      </if>
+      <if test="msg != null">
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="from != null">
+        #{from,jdbcType=VARCHAR},
+      </if>
+      <if test="to != null">
+        #{to,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.Chat">
+    update chat
+    <set>
+      <if test="msg != null">
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="from != null">
+        from = #{from,jdbcType=VARCHAR},
+      </if>
+      <if test="to != null">
+        to = #{to,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userchatid = #{userchatid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.etc.entity.Chat">
+    update chat
+    set msg = #{msg,jdbcType=VARCHAR},
+      from = #{from,jdbcType=VARCHAR},
+      to = #{to,jdbcType=VARCHAR}
+    where userchatid = #{userchatid,jdbcType=INTEGER}
+  </update>
+</mapper>

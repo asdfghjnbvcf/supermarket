@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.OrdersDao">
+  <resultMap id="BaseResultMap" type="com.etc.entity.Orders">
+    <id column="orderid" jdbcType="INTEGER" property="orderid" />
+    <result column="ordernum" jdbcType="VARCHAR" property="ordernum" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="ordersalary" jdbcType="DOUBLE" property="ordersalary" />
+    <result column="ordertime" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="orderstatus" jdbcType="INTEGER" property="orderstatus" />
+    <result column="useraddressid" jdbcType="INTEGER" property="useraddressid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    orderid, ordernum, userid, ordersalary, ordertime, orderstatus, useraddressid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orders
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.etc.entity.Orders">
+    insert into orders (orderid, ordernum, userid, 
+      ordersalary, ordertime, orderstatus, 
+      useraddressid)
+    values (#{orderid,jdbcType=INTEGER}, #{ordernum,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, 
+      #{ordersalary,jdbcType=DOUBLE}, #{ordertime,jdbcType=TIMESTAMP}, #{orderstatus,jdbcType=INTEGER}, 
+      #{useraddressid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.etc.entity.Orders">
+    insert into orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="ordernum != null">
+        ordernum,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="ordersalary != null">
+        ordersalary,
+      </if>
+      <if test="ordertime != null">
+        ordertime,
+      </if>
+      <if test="orderstatus != null">
+        orderstatus,
+      </if>
+      <if test="useraddressid != null">
+        useraddressid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="ordersalary != null">
+        #{ordersalary,jdbcType=DOUBLE},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderstatus != null">
+        #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="useraddressid != null">
+        #{useraddressid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.Orders">
+    update orders
+    <set>
+      <if test="ordernum != null">
+        ordernum = #{ordernum,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="ordersalary != null">
+        ordersalary = #{ordersalary,jdbcType=DOUBLE},
+      </if>
+      <if test="ordertime != null">
+        ordertime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderstatus != null">
+        orderstatus = #{orderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="useraddressid != null">
+        useraddressid = #{useraddressid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.etc.entity.Orders">
+    update orders
+    set ordernum = #{ordernum,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=INTEGER},
+      ordersalary = #{ordersalary,jdbcType=DOUBLE},
+      ordertime = #{ordertime,jdbcType=TIMESTAMP},
+      orderstatus = #{orderstatus,jdbcType=INTEGER},
+      useraddressid = #{useraddressid,jdbcType=INTEGER}
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </update>
+</mapper>

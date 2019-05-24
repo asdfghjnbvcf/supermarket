@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.UserAddressDao">
+  <resultMap id="BaseResultMap" type="com.etc.entity.UserAddress">
+    <id column="addressid" jdbcType="INTEGER" property="addressid" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    addressid, userid, address
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from useraddress
+    where addressid = #{addressid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from useraddress
+    where addressid = #{addressid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.etc.entity.UserAddress">
+    insert into useraddress (addressid, userid, address
+      )
+    values (#{addressid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.etc.entity.UserAddress">
+    insert into useraddress
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="addressid != null">
+        addressid,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="addressid != null">
+        #{addressid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.UserAddress">
+    update useraddress
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where addressid = #{addressid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.etc.entity.UserAddress">
+    update useraddress
+    set userid = #{userid,jdbcType=INTEGER},
+      address = #{address,jdbcType=VARCHAR}
+    where addressid = #{addressid,jdbcType=INTEGER}
+  </update>
+</mapper>
