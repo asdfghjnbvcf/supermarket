@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 施明
-  Date: 2019/5/21
-  Time: 20:23
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -57,7 +51,7 @@
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 
-<script src="layuiadmin/layui/layui.js"></script>
+<script src="${path}/layuiadmin/layui/layui.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 
 <script>
