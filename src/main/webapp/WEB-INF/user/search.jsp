@@ -58,7 +58,7 @@
 <div class="nav white">
     <div class="logo"><img src="${path}/images/logo.png" /></div>
     <div class="logoBig">
-        <li><img src="${path}/images/logobig.png" /></li>
+        <li><img src="${path}/images/logo.png" /></li>
     </div>
 
     <div class="search-bar pr">
@@ -86,7 +86,7 @@
 
                     </ul>
                 </div>
-                <div class="search-content">
+                <div class="search-list">
                     <div class="sort">
                         <li class="first"><a title="综合">综合排序</a></li>
                         <li><a title="销量">销量排序</a></li>
@@ -130,7 +130,7 @@
         </div>
         <div class="footer">
 
-            <div class="footer-bd">
+            <div class="footer-content">
                 <p>
                     
                     <em>Copyright © 2006-2019 YONGHUI SUPERSTORES, All Rights Reserved小馋猫超市·版权所有  中国福建省厦门市软园24号  客服中心：86-591-83758880 4000601933</em>
