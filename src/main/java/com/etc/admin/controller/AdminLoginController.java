@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("admin.action")
-public class LoginController {
+public class AdminLoginController {
 
-    @RequestMapping("tofacelogin")
+    @RequestMapping("toFaceLogin")
     public String toFaceLogin(){
         return "admin/facelogin";
     }

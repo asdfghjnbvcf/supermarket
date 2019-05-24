@@ -41,7 +41,9 @@
                 <form>
                     <div class="user-name">
                         <label for="user"><i class="am-icon-user"></i></label>
-                        <input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
+                        <input type="text" name="" id="user" placeholder="请输入手机号">
+                        <br>
+                        <br>
                     </div>
                     <div class="user-pass">
                         <label for="password"><i class="am-icon-lock"></i></label>
@@ -51,21 +53,12 @@
             </div>
 
             <div class="login-links">
-                <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
                 <a href="#" class="am-fr">忘记密码</a>
-                <a href="register.html" class="zcnext am-fr am-btn-default">注册</a>
+                <a href="${path}/user.action/toRegister" class="zcnext am-fr am-btn-default">注册</a>
                 <br />
             </div>
             <div class="am-cf">
                 <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
-            </div>
-            <div class="partner">
-                <h3>合作账号</h3>
-                <div class="am-btn-group">
-                    <li><a href="#"><i class="am-icon-qq am-icon-sm"></i><span>QQ登录</span></a></li>
-                    <li><a href="#"><i class="am-icon-weibo am-icon-sm"></i><span>微博登录</span> </a></li>
-                    <li><a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a></li>
-                </div>
             </div>
 
         </div>

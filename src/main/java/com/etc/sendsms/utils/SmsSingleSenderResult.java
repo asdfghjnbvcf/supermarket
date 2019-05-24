@@ -1,4 +1,10 @@
 package com.etc.sendsms.utils;
+/*
+ * 文件名：com.etc.sendsms.utils.SmsSingleSenderResult
+ * 描述：发送短信接口请求的返回值
+ * 作者：黄志鹏
+ * 时间：2019-5-24 08:56:55
+ */
 
 public class SmsSingleSenderResult {
 /*

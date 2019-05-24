@@ -139,4 +139,8 @@
       userstatus = #{userstatus,jdbcType=INTEGER}
     where userid = #{userid,jdbcType=INTEGER}
   </update>
+
+    <select id="getUserByUserPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from user where userphone=#{userphone}
+    </select>
 </mapper>

@@ -1,6 +1,12 @@
 package com.etc.sendsms.utils;
 
 import java.util.ArrayList;
+/*
+ * 文件名：com.etc.sendsms.utils.SmsStatusPullCallbackResult
+ * 描述：发送短信接口状态的返回值
+ * 作者：黄志鹏
+ * 时间：${DATE} ${TIME}
+ */
 
 public class SmsStatusPullCallbackResult {
 	 class Callback{
