@@ -163,18 +163,7 @@ class SmsSenderUtil {
     	return result;
     }
     
-    public SmsVoiceVerifyCodeSenderResult jsonToSmsSingleVoiceSenderResult(JSONObject json) {
-    	SmsVoiceVerifyCodeSenderResult result = new SmsVoiceVerifyCodeSenderResult();
-    	result.result = json.getInt("result");
-    	if (false == json.isNull("errmsg")) {
-    		result.errmsg = json.getString("errmsg");
-    	}
-    	if (0 == result.result) {    		
-    		result.ext = json.getString("ext");
-    		result.callid = json.getString("callid");
-    	}    	
-    	return result;    	
-    }
+
     
 
 }

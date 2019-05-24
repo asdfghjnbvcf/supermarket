@@ -30,4 +30,7 @@ public interface UserDao {
 
     //根据用户ID修改用户信息（参数可变）
     int updateByPrimaryKey(User record);
+
+    //根据手机号码查询用户是否存在
+    User getUserByUserPhone(String userphone);
 }
