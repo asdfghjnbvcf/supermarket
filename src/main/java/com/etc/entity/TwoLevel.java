@@ -1,47 +1,47 @@
 package com.etc.entity;
 
 public class TwoLevel {
-    private Integer twoLevelId;
-    private Integer oneLevelId;
-    private String twoLevelName;
+    private Integer twolevelid;
+    private Integer onelevelid;
+    private String twolevelname;
 
-    public Integer getTwoLevelId () {
-        return twoLevelId;
+    public Integer getTwolevelid () {
+        return twolevelid;
     }
 
-    public void setTwoLevelId ( Integer twoLevelId ) {
-        this.twoLevelId = twoLevelId;
+    public void setTwolevelid ( Integer twolevelid ) {
+        this.twolevelid = twolevelid;
     }
 
-    public Integer getOneLevelId () {
-        return oneLevelId;
+    public Integer getOnelevelid () {
+        return onelevelid;
     }
 
-    public void setOneLevelId ( Integer oneLevelId ) {
-        this.oneLevelId = oneLevelId;
+    public void setOnelevelid ( Integer onelevelid ) {
+        this.onelevelid = onelevelid;
     }
 
-    public String getTwoLevelName () {
-        return twoLevelName;
+    public String getTwolevelname () {
+        return twolevelname;
     }
 
-    public void setTwoLevelName ( String twoLevelName ) {
-        this.twoLevelName = twoLevelName;
+    public void setTwolevelname ( String twolevelname ) {
+        this.twolevelname = twolevelname;
     }
 
     @Override
     public String toString () {
         return "TwoLevel{" +
-                "twoLevelId=" + twoLevelId +
-                ", oneLevelId=" + oneLevelId +
-                ", twoLevelName='" + twoLevelName + '\'' +
+                "twolevelid=" + twolevelid +
+                ", onelevelid=" + onelevelid +
+                ", twolevelname='" + twolevelname + '\'' +
                 '}';
     }
 
-    public TwoLevel ( Integer twoLevelId, Integer oneLevelId, String twoLevelName ) {
-        this.twoLevelId = twoLevelId;
-        this.oneLevelId = oneLevelId;
-        this.twoLevelName = twoLevelName;
+    public TwoLevel ( Integer twolevelid, Integer onelevelid, String twolevelname ) {
+        this.twolevelid = twolevelid;
+        this.onelevelid = onelevelid;
+        this.twolevelname = twolevelname;
     }
 
     public TwoLevel () {

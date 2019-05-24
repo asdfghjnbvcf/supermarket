@@ -1,43 +1,46 @@
 package com.etc.entity;
 
+import java.io.Serializable;
+
 /**
  * 一级分类的实体类
  * 蒋丽娟
  */
-public class OneLevel {
-    private Integer oneLevelId;
+public class OneLevel implements Serializable{
+    private Integer onelevelid;
 
-    private String oneLevelName;
+    private String onelevelname;
 
-    public Integer getOneLevelId () {
-        return oneLevelId;
-    }
-
-    public void setOneLevelId ( Integer oneLevelId ) {
-        this.oneLevelId = oneLevelId;
-    }
-
-    public String getOneLevelName () {
-        return oneLevelName;
-    }
-
-    public void setOneLevelName ( String oneLevelName ) {
-        this.oneLevelName = oneLevelName;
-    }
     @Override
     public String toString () {
         return "OneLevel{" +
-                "oneLevelId=" + oneLevelId +
-                ", oneLevelName='" + oneLevelName + '\'' +
+                "onelevelid=" + onelevelid +
+                ", onelevelname='" + onelevelname + '\'' +
                 '}';
     }
 
     public OneLevel () {
     }
 
-    public OneLevel ( Integer oneLevelId, String oneLevelName ) {
-        this.oneLevelId = oneLevelId;
-        this.oneLevelName = oneLevelName;
+    public Integer getOnelevelid () {
+        return onelevelid;
+    }
+
+    public void setOnelevelid ( Integer onelevelid ) {
+        this.onelevelid = onelevelid;
+    }
+
+    public String getOnelevelname () {
+        return onelevelname;
+    }
+
+    public void setOnelevelname ( String onelevelname ) {
+        this.onelevelname = onelevelname;
+    }
+
+    public OneLevel ( Integer onelevelid, String onelevelname ) {
+        this.onelevelid = onelevelid;
+        this.onelevelname = onelevelname;
     }
 
 }

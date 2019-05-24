@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.FlashOrderDao">
+  <resultMap id="BaseResultMap" type="com.etc.entity.FlashOrder">
+    <id column="flashorderid" jdbcType="INTEGER" property="flashorderid" />
+    <result column="flashordernum" jdbcType="VARCHAR" property="flashordernum" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="flashsalary" jdbcType="DOUBLE" property="flashsalary" />
+    <result column="flashordertime" jdbcType="TIMESTAMP" property="flashordertime" />
+    <result column="flashorderstatus" jdbcType="INTEGER" property="flashorderstatus" />
+    <result column="goodsid" jdbcType="INTEGER" property="goodsid" />
+    <result column="goodsnum" jdbcType="INTEGER" property="goodsnum" />
+    <result column="useraddressid" jdbcType="INTEGER" property="useraddressid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    flashorderid, flashordernum, userid, flashsalary, flashordertime, flashorderstatus, 
+    goodsid, goodsnum, useraddressid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from flashorder
+    where flashorderid = #{flashorderid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from flashorder
+    where flashorderid = #{flashorderid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.etc.entity.FlashOrder">
+    insert into flashorder (flashorderid, flashordernum, userid, 
+      flashsalary, flashordertime, flashorderstatus, 
+      goodsid, goodsnum, useraddressid
+      )
+    values (#{flashorderid,jdbcType=INTEGER}, #{flashordernum,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, 
+      #{flashsalary,jdbcType=DOUBLE}, #{flashordertime,jdbcType=TIMESTAMP}, #{flashorderstatus,jdbcType=INTEGER}, 
+      #{goodsid,jdbcType=INTEGER}, #{goodsnum,jdbcType=INTEGER}, #{useraddressid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.etc.entity.FlashOrder">
+    insert into flashorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flashorderid != null">
+        flashorderid,
+      </if>
+      <if test="flashordernum != null">
+        flashordernum,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="flashsalary != null">
+        flashsalary,
+      </if>
+      <if test="flashordertime != null">
+        flashordertime,
+      </if>
+      <if test="flashorderstatus != null">
+        flashorderstatus,
+      </if>
+      <if test="goodsid != null">
+        goodsid,
+      </if>
+      <if test="goodsnum != null">
+        goodsnum,
+      </if>
+      <if test="useraddressid != null">
+        useraddressid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flashorderid != null">
+        #{flashorderid,jdbcType=INTEGER},
+      </if>
+      <if test="flashordernum != null">
+        #{flashordernum,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="flashsalary != null">
+        #{flashsalary,jdbcType=DOUBLE},
+      </if>
+      <if test="flashordertime != null">
+        #{flashordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flashorderstatus != null">
+        #{flashorderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null">
+        #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsnum != null">
+        #{goodsnum,jdbcType=INTEGER},
+      </if>
+      <if test="useraddressid != null">
+        #{useraddressid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.FlashOrder">
+    update flashorder
+    <set>
+      <if test="flashordernum != null">
+        flashordernum = #{flashordernum,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="flashsalary != null">
+        flashsalary = #{flashsalary,jdbcType=DOUBLE},
+      </if>
+      <if test="flashordertime != null">
+        flashordertime = #{flashordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flashorderstatus != null">
+        flashorderstatus = #{flashorderstatus,jdbcType=INTEGER},
+      </if>
+      <if test="goodsid != null">
+        goodsid = #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="goodsnum != null">
+        goodsnum = #{goodsnum,jdbcType=INTEGER},
+      </if>
+      <if test="useraddressid != null">
+        useraddressid = #{useraddressid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where flashorderid = #{flashorderid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.etc.entity.FlashOrder">
+    update flashorder
+    set flashordernum = #{flashordernum,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=INTEGER},
+      flashsalary = #{flashsalary,jdbcType=DOUBLE},
+      flashordertime = #{flashordertime,jdbcType=TIMESTAMP},
+      flashorderstatus = #{flashorderstatus,jdbcType=INTEGER},
+      goodsid = #{goodsid,jdbcType=INTEGER},
+      goodsnum = #{goodsnum,jdbcType=INTEGER},
+      useraddressid = #{useraddressid,jdbcType=INTEGER}
+    where flashorderid = #{flashorderid,jdbcType=INTEGER}
+  </update>
+</mapper>

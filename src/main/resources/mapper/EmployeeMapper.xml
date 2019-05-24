@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.EmployeeDao">
+  <resultMap id="BaseResultMap" type="com.etc.entity.Employee">
+    <id column="empid" jdbcType="INTEGER" property="empid" />
+    <result column="empname" jdbcType="VARCHAR" property="empname" />
+    <result column="emppassword" jdbcType="VARCHAR" property="emppassword" />
+    <result column="empphone" jdbcType="VARCHAR" property="empphone" />
+    <result column="empsex" jdbcType="VARCHAR" property="empsex" />
+    <result column="empentryday" jdbcType="DATE" property="empentryday" />
+    <result column="empbirthday" jdbcType="DATE" property="empbirthday" />
+    <result column="emppicture" jdbcType="VARCHAR" property="emppicture" />
+    <result column="empstatus" jdbcType="INTEGER" property="empstatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    empid, empname, emppassword, empphone, empsex, empentryday, empbirthday, emppicture, 
+    empstatus
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where empid = #{empid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from employee
+    where empid = #{empid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.etc.entity.Employee">
+    insert into employee (empid, empname, emppassword, 
+      empphone, empsex, empentryday, 
+      empbirthday, emppicture, empstatus
+      )
+    values (#{empid,jdbcType=INTEGER}, #{empname,jdbcType=VARCHAR}, #{emppassword,jdbcType=VARCHAR}, 
+      #{empphone,jdbcType=VARCHAR}, #{empsex,jdbcType=VARCHAR}, #{empentryday,jdbcType=DATE}, 
+      #{empbirthday,jdbcType=DATE}, #{emppicture,jdbcType=VARCHAR}, #{empstatus,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.etc.entity.Employee">
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        empid,
+      </if>
+      <if test="empname != null">
+        empname,
+      </if>
+      <if test="emppassword != null">
+        emppassword,
+      </if>
+      <if test="empphone != null">
+        empphone,
+      </if>
+      <if test="empsex != null">
+        empsex,
+      </if>
+      <if test="empentryday != null">
+        empentryday,
+      </if>
+      <if test="empbirthday != null">
+        empbirthday,
+      </if>
+      <if test="emppicture != null">
+        emppicture,
+      </if>
+      <if test="empstatus != null">
+        empstatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empid != null">
+        #{empid,jdbcType=INTEGER},
+      </if>
+      <if test="empname != null">
+        #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="emppassword != null">
+        #{emppassword,jdbcType=VARCHAR},
+      </if>
+      <if test="empphone != null">
+        #{empphone,jdbcType=VARCHAR},
+      </if>
+      <if test="empsex != null">
+        #{empsex,jdbcType=VARCHAR},
+      </if>
+      <if test="empentryday != null">
+        #{empentryday,jdbcType=DATE},
+      </if>
+      <if test="empbirthday != null">
+        #{empbirthday,jdbcType=DATE},
+      </if>
+      <if test="emppicture != null">
+        #{emppicture,jdbcType=VARCHAR},
+      </if>
+      <if test="empstatus != null">
+        #{empstatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.Employee">
+    update employee
+    <set>
+      <if test="empname != null">
+        empname = #{empname,jdbcType=VARCHAR},
+      </if>
+      <if test="emppassword != null">
+        emppassword = #{emppassword,jdbcType=VARCHAR},
+      </if>
+      <if test="empphone != null">
+        empphone = #{empphone,jdbcType=VARCHAR},
+      </if>
+      <if test="empsex != null">
+        empsex = #{empsex,jdbcType=VARCHAR},
+      </if>
+      <if test="empentryday != null">
+        empentryday = #{empentryday,jdbcType=DATE},
+      </if>
+      <if test="empbirthday != null">
+        empbirthday = #{empbirthday,jdbcType=DATE},
+      </if>
+      <if test="emppicture != null">
+        emppicture = #{emppicture,jdbcType=VARCHAR},
+      </if>
+      <if test="empstatus != null">
+        empstatus = #{empstatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where empid = #{empid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.etc.entity.Employee">
+    update employee
+    set empname = #{empname,jdbcType=VARCHAR},
+      emppassword = #{emppassword,jdbcType=VARCHAR},
+      empphone = #{empphone,jdbcType=VARCHAR},
+      empsex = #{empsex,jdbcType=VARCHAR},
+      empentryday = #{empentryday,jdbcType=DATE},
+      empbirthday = #{empbirthday,jdbcType=DATE},
+      emppicture = #{emppicture,jdbcType=VARCHAR},
+      empstatus = #{empstatus,jdbcType=INTEGER}
+    where empid = #{empid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface TwoLevelService {
     List<TwoLevel> listTwoLevel ();
+    TwoLevel getTwoLevelById(Integer twolevelid);
 }
