@@ -6,6 +6,8 @@ package com.etc.service;/*
  */
 
 import com.etc.entity.OneLevel;
+import com.etc.utils.PageData;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,4 +16,6 @@ import java.util.List;
  */
 public interface OneLevelService {
     List<OneLevel> listOneLevel();
+    PageData<OneLevel> listOneLevelByPage( Integer page, Integer pageSize, String content);
+    boolean updateByPrimaryKey( OneLevel oneLevel);
 }

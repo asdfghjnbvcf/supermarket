@@ -155,7 +155,11 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd>
+                                <a lay-href="oneLevelList">一级分类列表</a>
+                            </dd>
+                            <dd>
                                 <a lay-href="commodityList">商品列表</a>
+
                             </dd>
                         </dl>
                     </li>

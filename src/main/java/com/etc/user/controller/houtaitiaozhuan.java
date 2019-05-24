@@ -75,4 +75,8 @@ public class houtaitiaozhuan {
     public String  tofacelogin(){
         return "admin/faceLogin";
     }
+    @RequestMapping("oneLevelList")
+    public String  oneLevelList(){
+        return "admin/oneLevelList";
+    }
 }
