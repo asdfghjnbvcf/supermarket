@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.FlashGoodsStockDao">
+  <resultMap id="BaseResultMap" type="com.etc.entity.FlashGoodsStock">
+    <id column="flashgoodsstockid" jdbcType="INTEGER" property="flashgoodsstockid" />
+    <result column="stocknum" jdbcType="INTEGER" property="stocknum" />
+    <result column="sellnum" jdbcType="INTEGER" property="sellnum" />
+    <result column="flashgoodsid" jdbcType="INTEGER" property="flashgoodsid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    flashgoodsstockid, stocknum, sellnum, flashgoodsid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from flashgoodsstock
+    where flashgoodsstockid = #{flashgoodsstockid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from flashgoodsstock
+    where flashgoodsstockid = #{flashgoodsstockid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.etc.entity.FlashGoodsStock">
+    insert into flashgoodsstock (flashgoodsstockid, stocknum, sellnum, 
+      flashgoodsid)
+    values (#{flashgoodsstockid,jdbcType=INTEGER}, #{stocknum,jdbcType=INTEGER}, #{sellnum,jdbcType=INTEGER}, 
+      #{flashgoodsid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.etc.entity.FlashGoodsStock">
+    insert into flashgoodsstock
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flashgoodsstockid != null">
+        flashgoodsstockid,
+      </if>
+      <if test="stocknum != null">
+        stocknum,
+      </if>
+      <if test="sellnum != null">
+        sellnum,
+      </if>
+      <if test="flashgoodsid != null">
+        flashgoodsid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flashgoodsstockid != null">
+        #{flashgoodsstockid,jdbcType=INTEGER},
+      </if>
+      <if test="stocknum != null">
+        #{stocknum,jdbcType=INTEGER},
+      </if>
+      <if test="sellnum != null">
+        #{sellnum,jdbcType=INTEGER},
+      </if>
+      <if test="flashgoodsid != null">
+        #{flashgoodsid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.etc.entity.FlashGoodsStock">
+    update flashgoodsstock
+    <set>
+      <if test="stocknum != null">
+        stocknum = #{stocknum,jdbcType=INTEGER},
+      </if>
+      <if test="sellnum != null">
+        sellnum = #{sellnum,jdbcType=INTEGER},
+      </if>
+      <if test="flashgoodsid != null">
+        flashgoodsid = #{flashgoodsid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where flashgoodsstockid = #{flashgoodsstockid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.etc.entity.FlashGoodsStock">
+    update flashgoodsstock
+    set stocknum = #{stocknum,jdbcType=INTEGER},
+      sellnum = #{sellnum,jdbcType=INTEGER},
+      flashgoodsid = #{flashgoodsid,jdbcType=INTEGER}
+    where flashgoodsstockid = #{flashgoodsstockid,jdbcType=INTEGER}
+  </update>
+</mapper>

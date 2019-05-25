@@ -1,5 +1,7 @@
 package com.etc.result;
 
+import java.util.List;
+
 /**
  * 文件名:com.etc.result.Result
  * 描述：请求结果的返回信息
@@ -14,10 +16,10 @@ public class Result<T> {
     private String msg;
 
     //数据
-    private T data;
+    private List<T> data;
 
     //成功时候调用
-    public static  <T> Result<T> success(T data){
+    public static <T> Result<T> success(List<T> data){
         return new Result<T>(data);
     }
 
@@ -26,7 +28,7 @@ public class Result<T> {
         return new Result<T>(codeMsg);
     }
 
-    private Result(T data) {
+    private Result(List<T> data) {
         this.data = data;
     }
 
@@ -55,10 +57,12 @@ public class Result<T> {
     public void setMsg(String msg) {
         this.msg = msg;
     }
-    public T getData() {
+
+    public List<T> getData() {
         return data;
     }
-    public void setData(T data) {
+
+    public void setData(List<T> data) {
         this.data = data;
     }
 }

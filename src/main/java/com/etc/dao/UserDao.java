@@ -33,4 +33,7 @@ public interface UserDao {
 
     //根据手机号码查询用户是否存在
     User getUserByUserPhone(String userphone);
+
+    //用户注册保存信息的方法
+    boolean saveUser(User user);
 }

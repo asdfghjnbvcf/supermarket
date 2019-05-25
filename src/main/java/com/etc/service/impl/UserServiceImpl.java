@@ -9,10 +9,12 @@ package com.etc.service.impl;
 import com.etc.dao.UserDao;
 import com.etc.entity.User;
 import com.etc.service.UserService;
+import com.etc.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+
+import java.util.Date;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -21,18 +23,34 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    /**
+     * 根据手机号查询数据库中是否存在用户
+     * @param userPhone 要查询的手机号
+     * @return 用户是否存在
+     */
     @Override
-    public boolean getUserByUserPhone(String userPhone) {
+    public User getUserByUserPhone(String userPhone) {
 
         //调用持久层对象根据userphone查询用户
        User user =  userDao.getUserByUserPhone(userPhone);
 
-       //判断用户用户是否存在
-       if (user!=null){
-           //用户存在返回true
-           return true;
-       }
-       //用户不存在返回false
-        return false;
+           return user;
+    }
+
+    /**
+     * 用户注册的service层方法
+     * @param user
+     * @return
+     */
+    @Override
+    public boolean saveUser(User user) {
+
+        //将密码进行md5加密
+        user.setUserpassword(MD5Util.getEncodeByMd5(user.getUserpassword()));
+
+        //设置注册时间
+        user.setUserregisday(new Date());
+
+        return userDao.saveUser(user);
     }
 }

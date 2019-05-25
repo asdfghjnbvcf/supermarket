@@ -79,4 +79,8 @@ public class houtaitiaozhuan {
     public String  oneLevelList(){
         return "admin/oneLevelList";
     }
+    @RequestMapping("twoLevelList")
+    public String  twoLevelList(){
+        return "admin/twoLevelList";
+    }
 }

@@ -2,6 +2,7 @@ package com.etc.user.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("user.action")
@@ -120,7 +121,12 @@ public class TiaoZhuan {
     }
 
 
-
-
+    //秒杀商品详情页
+    @RequestMapping("flashIntroduction")
+    public ModelAndView flashIntroduction(Integer flashGoodsId){
+        ModelAndView mv = new ModelAndView("user/flashIntroduction");
+        mv.addObject("flashGoodsId",flashGoodsId);
+        return mv;
+    }
 
 }

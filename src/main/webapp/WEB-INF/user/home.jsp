@@ -15,6 +15,8 @@
 
     <title>首页</title>
 
+
+
     <link href="${path}/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
     <link href="${path}/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
 
@@ -890,7 +892,8 @@
 
             <div class="quick_toggle ">
                 <li class="qtitem ">
-                    <a href="# "><span class="kfzx "></span></a>
+                    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1403672737&site=qq&menu=yes"><span class="kfzx "></span><img border="0" src="http://wpa.qq.com/pa?p=2:1403672737"/></a>
+
                     <div class="mp_tooltip ">客服中心<i class="icon_arrow_right_black "></i></div>
                 </li>
                 <!--二维码 -->
@@ -978,6 +981,9 @@
     window.jQuery || document.write('<script src="basic/js/jquery.min.js "><\/script>');
 </script>
 <script type="text/javascript " src="basic/js/quick_links.js "></script>
+
 </body>
+
+
 
 </html>
