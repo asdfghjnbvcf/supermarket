@@ -139,4 +139,13 @@
       userstatus = #{userstatus,jdbcType=INTEGER}
     where userid = #{userid,jdbcType=INTEGER}
   </update>
+
+    <select id="getUserByUserPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from user where userphone=#{userphone}
+    </select>
+
+    <insert id="saveUser" parameterType="com.etc.entity.User">
+        insert into user(username,userpassword,userphone,userregisday)
+           values(#{username},#{userpassword},#{userphone},#{userregisday})
+    </insert>
 </mapper>

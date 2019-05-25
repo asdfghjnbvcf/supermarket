@@ -2,42 +2,47 @@
   Created by IntelliJ IDEA.
   User: 施明
   Date: 2019/5/21
-  Time: 20:30
+  Time: 20:27
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-
+<c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <head>
     <meta charset="utf-8">
     <title>layui</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/layuiadmin/layui/css/layui.css" media="all">
-    <!--  <link rel="stylesheet" href="layuiadmin/style/admin.css" media="all">-->
+    <link rel="stylesheet" href="${path}/layuiadmin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="${path}/layuiadmin/style/admin.css" media="all">
     <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 
 <body>
 <div class="layui-form-item">
     <div class="layui-inline">
-        <label class="layui-form-label">订单ID</label>
+        <label class="layui-form-label">员工ID</label>
         <div class="layui-input-block">
-            <input type="text" name="orderId" placeholder="请输入" autocomplete="off" class="layui-input">
+            <input type="text" name="empId" placeholder="请输入" autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-inline">
-        <label class="layui-form-label">订单状态</label>
+        <label class="layui-form-label">员工名</label>
         <div class="layui-input-block">
-            <input type="text" name="orderStatus" placeholder="请输入" autocomplete="off" class="layui-input">
+            <input type="text" name="empName" placeholder="请输入" autocomplete="off" class="layui-input">
         </div>
     </div>
 
     <div class="layui-inline">
-        <label class="layui-form-label">房间ID</label>
+        <label class="layui-form-label">性别</label>
         <div class="layui-input-block">
-            <input type="text" name="roomId" placeholder="请输入" autocomplete="off" class="layui-input">
+            <select name="empSex">
+                <option value="0">不限</option>
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>
         </div>
     </div>
     <div class="layui-inline">
@@ -48,17 +53,23 @@
 </div>
 </div>
 
-
 <table class="layui-hide" id="test" lay-filter="test"></table>
 
-
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <!--<button class="layui-btn layui-btn-sm" lay-event="getCheckData">添加员工</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>-->
+        <button class="layui-btn layui-btn-sm" lay-event="add">添加员工</button>
+    </div>
+</script>
 
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 
-<script src="layuiadmin/layui/layui.js"></script>
+<script src="${path}/layuiadmin/layui/layui.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 
 <script>
@@ -69,23 +80,13 @@
             elem: '#test'
             //  ,url:'/test/table/demo1.json'
             ,
-            url: 'layuiadmin/json/useradmin/weborder.js' //模拟接口
+            url: '' //模拟接口
             ,
             toolbar: '#toolbarDemo',
             title: '用户数据表',
             cols: [
                 [
-                    { type: 'checkbox', fixed: 'left' },
-                    { field: 'orderId', width: 100, title: '订单ID', sort: true },
-                    { field: 'empId', width: 100, title: '员工ID', sort: true },
-                    { field: 'userId', width: 100, title: '用户ID', sort: true },
-                    { field: 'roomId', width: 100, title: '房间ID', sort: true },
-                    { field: 'orderSalary', title: '价格', minWidth: 100 },
-                    { field: 'orderStatus', title: '订单状态' },
-                    { field: 'orderStartDate', width: 80, title: '下单日期' },
-                    { field: 'orderEneDate', title: '退房时间' },
-                    { field: 'orderDate', title: '预定天数' },
-                    { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+                    { type: 'checkbox', fixed: 'left' }, { field: 'empId', width: 100, title: '员工ID', sort: true }, { field: 'empName', title: '姓名', minWidth: 100 }, { field: 'empPwd', title: '密码' }, { field: 'empSex', width: 80, title: '性别' }, { field: 'empTel', title: '手机' }, { field: 'empLevel', title: '员工身份' }, { field: 'empAddress', title: '联系地址' }, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
                 ]
             ],
             page: true

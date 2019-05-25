@@ -8,8 +8,13 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
-// org.json 第三方库请自行下载编译，或者在以下链接下载使用 jdk 1.7 的版本
-// http://share.weiyun.com/630a8c65e9fd497f3687b3546d0b839e
+
+/*
+ * 文件名：com.etc.sendsms.utils.SmsSingleSender
+ * 描述：发送短信接口请求头部
+ * 作者：黄志鹏
+ * 时间：2019-5-24 08:55:42
+ */
 
 public class SmsSingleSender {
 	String accesskey;

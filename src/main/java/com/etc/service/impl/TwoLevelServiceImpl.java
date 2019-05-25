@@ -11,6 +11,7 @@ import com.etc.entity.OneLevel;
 import com.etc.entity.TwoLevel;
 import com.etc.service.OneLevelService;
 import com.etc.service.TwoLevelService;
+import com.etc.utils.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,20 @@ public class TwoLevelServiceImpl implements TwoLevelService{
     @Override
     public TwoLevel getTwoLevelById ( Integer twolevelid ) {
         return twoLevelDao.getTwoLevelById(twolevelid);
+    }
+
+    @Override
+    public PageData<TwoLevel> listTwoLevelByPage ( Integer page, Integer pageSize, String content ) {
+        int start=(page-1)*pageSize;
+        List<TwoLevel> data=twoLevelDao.listTwoLevelByPage(start,pageSize,content);
+        int count=twoLevelDao.getTotal(content);
+        PageData<TwoLevel> pd=new PageData<>(data, count, pageSize, page);
+        return pd;
+    }
+
+    @Override
+    public boolean updateByPrimaryKey ( TwoLevel twoLevel ) {
+        return twoLevelDao.updateByPrimaryKey(twoLevel)>0;
     }
 
 

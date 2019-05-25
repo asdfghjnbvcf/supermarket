@@ -9,9 +9,34 @@
     <result column="goodstitle" jdbcType="VARCHAR" property="goodstitle" />
     <result column="goodsInformation" jdbcType="VARCHAR" property="goodsinformation" />
   </resultMap>
+  <resultMap id="BaseResultMap1" type="com.etc.entity.Goods">
+    <id column="goodsid" jdbcType="INTEGER" property="goodsid" />
+    <result column="twolevelid" jdbcType="INTEGER" property="twolevelid" />
+    <result column="twolevelname" jdbcType="VARCHAR" property="twolevelname" />
+    <result column="goodsname" jdbcType="VARCHAR" property="goodsname" />
+    <result column="goodsprice" jdbcType="DOUBLE" property="goodsprice" />
+    <result column="goodstitle" jdbcType="VARCHAR" property="goodstitle" />
+    <result column="goodsInformation" jdbcType="VARCHAR" property="goodsinformation" />
+  </resultMap>
   <sql id="Base_Column_List">
     goodsid, twolevelid, goodsname, goodsprice, goodstitle, goodsInformation
   </sql>
+  <!-- 后台查询所有并分页-->
+  <select id="listGoodsByPage" resultMap="BaseResultMap1">
+        SELECT g.goodsid,g.twolevelid,g.goodsname,g.goodstitle,g.goodsinformation,g.goodsprice,t.twolevelname FROM goods g JOIN twolevel t ON g.twolevelid=t.twolevelid
+        where t.twolevelname like concat('%',#{content},'%')
+         or g.goodsname like concat('%',#{content},'%')
+         or g.goodstitle like concat('%',#{content},'%')
+        limit #{start},#{pageSize}
+    </select>
+  <!-- 后台统计模糊查询总数-->
+  <select id="getTotal" resultType="java.lang.Integer">
+        SELECT count(*) FROM goods g JOIN twolevel t ON g.twolevelid=t.twolevelid
+        where t.twolevelname like concat('%',#{content},'%')
+         or g.goodsname like concat('%',#{content},'%')
+         or g.goodstitle like concat('%',#{content},'%')
+    </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

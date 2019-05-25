@@ -27,6 +27,11 @@ public class PhoneCode implements Serializable{
         this.code = code;
     }
 
+    public PhoneCode(String phone, String code) {
+        this.phone = phone;
+        this.code = code;
+    }
+
     public Integer getId() {
         return id;
     }

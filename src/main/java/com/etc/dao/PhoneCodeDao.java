@@ -2,6 +2,7 @@ package com.etc.dao;
 
 import com.etc.entity.PhoneCode;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -30,4 +31,13 @@ public interface PhoneCodeDao {
 
     //根据手机验证ID修改手机验证信息（参数可变）
     int updateByPrimaryKey(PhoneCode record);
+
+    //添加验证码
+    boolean savePhoneCode(PhoneCode phoneCode);
+
+    //根据phone和code删除PhoneCode
+    boolean deletePhoneCodeByPhone(@Param("phone") String phone ,@Param("code") String code);
+
+    //根据phone和code查询PhoneCode
+    PhoneCode selectPhoneCodeByPhoneAndCode(@Param("phone") String phone, @Param("code") String code);
 }

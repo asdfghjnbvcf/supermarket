@@ -4,16 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("backjump.action")
+@RequestMapping("admin.action")
 public class houtaitiaozhuan {
-    @RequestMapping("commentlist")
+    @RequestMapping("commentList")
     public String address() {
-        return "admin/commentlist";
+        return "admin/commentList";
     }
 
-    @RequestMapping("commoditylist")
+    @RequestMapping("commodityList")
     public String commoditylist() {
-        return "admin/commoditylist";
+        return "admin/commodityList";
     }
 
     @RequestMapping("communicationList")
@@ -26,13 +26,13 @@ public class houtaitiaozhuan {
         return "admin/console";
     }
 
-    @RequestMapping("employeeform")
+    @RequestMapping("employeeForm")
     public String employeeform() {
-        return "admin/employeeform";
+        return "admin/employeeForm";
     }
-    @RequestMapping("employeelist")
+    @RequestMapping("employeeList")
     public String employeelist() {
-        return "admin/employeelist";
+        return "admin/employeeList";
     }
     @RequestMapping("forget")
     public String forget() {
@@ -47,9 +47,9 @@ public class houtaitiaozhuan {
     public String login() {
         return "admin/login";
     }
-    @RequestMapping("orderlist")
+    @RequestMapping("orderList")
     public String orderlist() {
-        return "admin/orderlist";
+        return "admin/orderList";
     }
     @RequestMapping("reg")
     public String reg() {
@@ -59,20 +59,28 @@ public class houtaitiaozhuan {
     public String role() {
         return "admin/role";
     }
-    @RequestMapping("roomlist")
+    @RequestMapping("roomList")
     public String roomlist() {
-        return "admin/roomlist";
+        return "admin/roomList";
     }
     @RequestMapping("seckillList")
     public String seckillList() {
         return "admin/seckillList";
     }
-    @RequestMapping("userlist")
+    @RequestMapping("userList")
     public String userlist() {
-        return "admin/userlist";
+        return "admin/userList";
     }
-    @RequestMapping("facelogin")
+    @RequestMapping("faceLogin")
     public String  tofacelogin(){
-        return "admin/facelogin";
+        return "admin/faceLogin";
+    }
+    @RequestMapping("oneLevelList")
+    public String  oneLevelList(){
+        return "admin/oneLevelList";
+    }
+    @RequestMapping("twoLevelList")
+    public String  twoLevelList(){
+        return "admin/twoLevelList";
     }
 }
