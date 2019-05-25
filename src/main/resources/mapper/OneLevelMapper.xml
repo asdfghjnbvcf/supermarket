@@ -14,4 +14,22 @@
         <include refid="Base_Column_List" />
         from onelevel
     </select>
+    <!--   查询分页 -->
+    <select id="listOneLevelByPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" /> from onelevel
+        where onelevelname like concat('%',#{content},'%') limit #{start},#{pageSize}
+    </select>
+    <!--   统计所有模糊查询的条数 一定要加结果的类型 -->
+    <select id="getTotal" resultType="java.lang.Integer">
+    select count(*) from onelevel where onelevelname like concat('%',#{content},'%')
+  </select>
+    <!--   修改一级分类-->
+    <update id="updateByPrimaryKey" parameterType="com.etc.entity.OneLevel">
+        update onelevel
+        <set>
+            onelevelname = #{onelevelname,jdbcType=INTEGER},
+        </set>
+        where onelevelid = #{onelevelid,jdbcType=INTEGER}
+    </update>
 </mapper>

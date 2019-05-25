@@ -5,7 +5,9 @@ package com.etc.service;/*
  * 时间：2019/5/23 10:23
  */
 
+import com.etc.entity.OneLevel;
 import com.etc.entity.TwoLevel;
+import com.etc.utils.PageData;
 
 import java.util.List;
 
@@ -15,4 +17,6 @@ import java.util.List;
 public interface TwoLevelService {
     List<TwoLevel> listTwoLevel ();
     TwoLevel getTwoLevelById(Integer twolevelid);
+    PageData<TwoLevel> listTwoLevelByPage( Integer page, Integer pageSize, String content);
+    boolean updateByPrimaryKey( TwoLevel twoLevel);
 }
