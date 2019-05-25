@@ -38,6 +38,6 @@ public interface GoodsDao {
     //得到所有商品并分页查询
     List<Goods> listGoodsByPage( @Param("start") int start, @Param("pageSize")int pageSize, @Param("content")String content);
 
-    //得到所有商品并分页查询
+    //得到模糊查询后的总条数
     int getTotal(String content);
 }

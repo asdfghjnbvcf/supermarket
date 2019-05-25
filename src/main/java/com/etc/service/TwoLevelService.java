@@ -19,4 +19,6 @@ public interface TwoLevelService {
     TwoLevel getTwoLevelById(Integer twolevelid);
     PageData<TwoLevel> listTwoLevelByPage( Integer page, Integer pageSize, String content);
     boolean updateByPrimaryKey( TwoLevel twoLevel);
+    //得到一级id下的二级商品集合
+    List<TwoLevel> listTwoLevelByOneLeveId(Integer onelevelid);
 }

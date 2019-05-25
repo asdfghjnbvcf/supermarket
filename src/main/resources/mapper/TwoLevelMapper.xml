@@ -44,4 +44,10 @@
         </set>
         where twolevelid = #{twolevelid,jdbcType=INTEGER}
     </update>
+    <select id="listTwoLevelByOneLeveId" parameterType="java.lang.Integer" resultMap="BaseResultMap1">
+        select
+        <include refid="Base_Column_List" />
+        from twolevel
+        where onelevelid = #{onelevelid,jdbcType=INTEGER}
+    </select>
 </mapper>

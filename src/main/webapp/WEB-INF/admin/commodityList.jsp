@@ -43,8 +43,9 @@
                 </select>
             </div>
             <div class="layui-input-inline">
-                <select name="quiz2" id="twoLevelSelect">
-                    <option value="">二级分类</option>
+                <select name="quiz2" id="twoLevelSelect" lay-filter="select2">
+                    <option value="0">二级分类</option>
+                    <option value="1">二级分类</option>
                 </select>
             </div>
         </div>
@@ -106,31 +107,13 @@
         </div>
     </form>
 </div>
-<div class="layui-form-item">
+<div class="demoTable">
+    商品名：
     <div class="layui-inline">
-        <label class="layui-form-label">订单ID</label>
-        <div class="layui-input-block">
-            <input type="text" name="orderId" placeholder="请输入" autocomplete="off" class="layui-input">
-        </div>
+        <input class="layui-input" name="goodsname" id="demoReload"
+               autocomplete="off">
     </div>
-    <div class="layui-inline">
-        <label class="layui-form-label">订单状态</label>
-        <div class="layui-input-block">
-            <input type="text" name="orderStatus" placeholder="请输入" autocomplete="off" class="layui-input">
-        </div>
-    </div>
-
-    <div class="layui-inline">
-        <label class="layui-form-label">房间ID</label>
-        <div class="layui-input-block">
-            <input type="text" name="roomId" placeholder="请输入" autocomplete="off" class="layui-input">
-        </div>
-    </div>
-    <div class="layui-inline">
-        <button class="layui-btn layuiadmin-btn-useradmin" lay-submit lay-filter="LAY-user-front-search">
-            <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
-        </button>
-    </div>
+    <button class="layui-btn" data-type="reload">搜索</button>
 </div>
 </div>
 
@@ -205,18 +188,33 @@
                         content : $("#addForm").html(),
 
                     });
-
                     //只有加了这一句，表单的复选框，单选框才可以编辑
                     layui.form.render();
-                        /*$("#oneLevelSelect").change(function () {
-                            alert(this.val()+"hiuji");
-                    });*/
                     layui.form.render('select')
                     layui.form.on('select(select1)',function (data3) {
                         //获取选中后的value值
                         var onelevelid=data3.value
                         //获取第二个列表框，向列表中添加内容
+                        $.ajax({
+                            type : "get",
+                            url : "selectByOneLevelId",
+                            data : {
+                                "onelevelid":onelevelid
+                            },
+                            success : function(data) {
+                                console.log(data);
+                                layui.form.on('select(select2)',function (data4) {
+                                    console.log(data4);
+                                });
+                                $.each(data,function(i){
+                                   // console.log(data[i].twolevelname+"循环了，吗"+data[i].twolevelid);
+                                   // alert($("#twoLevelSelect").attr("name")+"deshkdfhskadh");
+                                   // $("#twoLevelSelect").empty();
+                                        $('#twoLevelSelect').attr('<option value="+data[i].twolevelid)+">'+data[i].twolevelname+'</option>');
 
+                                });
+                            }
+                        });
 
 
 
