@@ -8,6 +8,7 @@ package com.etc.service.impl;/*
 import com.etc.dao.EmployeeDao;
 import com.etc.entity.Employee;
 import com.etc.service.EmployeeService;
+import com.etc.utils.MD5Util;
 import com.etc.utils.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public boolean insert(Employee employee) {
-        return employeeDao.insert(employee)>0;
+        String psd = employee.getEmppassword();
+        String md5 = MD5Util.getEncodeByMd5(psd);
+        employee.setEmppassword(md5);
+        return employeeDao.insertSelective(employee)>0;
     }
 
     @Override

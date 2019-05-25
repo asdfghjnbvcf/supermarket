@@ -26,7 +26,7 @@
     <div class="layui-inline">
         <label class="layui-form-label">员工名</label>
         <div class="layui-input-block">
-            <input type="text" name="empName" placeholder="请输入" autocomplete="off" class="layui-input">
+            <input type="text" name="empName" placeholder="请输入" autocomplete="off" class="layui-input" id="demoReload">
         </div>
     </div>
 
@@ -170,10 +170,12 @@
                     , { field: 'empname', title: '姓名', minWidth: 100 }
                     , { field: 'empphone', title: '电话' }
                     , { field: 'empsex', width: 80, title: '性别' }
-                    , { field: 'emptryday', title: '入职时间' }
+                    , { field: 'empentryday', title: '入职时间' }
                     , { field: 'empbirthday', title: '员工生日' }
-                    , { field: 'emppicture', title: '头像' }
-                    , { field: 'emppstatus', title: '状态' }
+                    , { field: 'emppicture', title: '头像',templet:'<div><img src="{{d.emppicture}}" /></div>'}
+                    , { field: 'emppstatus', title: '状态', templet:function (res) {
+                        return res.empstatus == 0?"激活" : "未激活";
+                    }}
                     , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
                 ]
             ],
@@ -207,19 +209,18 @@
         //头工具栏事件
         table.on('toolbar(test)', function(obj) {
             var checkStatus = table.checkStatus(obj.config.id);
-//					switch(obj.event) {
-//						case 'getCheckData':
-//							var data = checkStatus.data;
-//							layer.alert(JSON.stringify(data));
-//							break;
-//						case 'getCheckLength':
-//							var data = checkStatus.data;
-//							layer.msg('选中了：' + data.length + ' 个');
-//							break;
-//						case 'isAll':
-//							layer.msg(checkStatus.isAll ? '全选' : '未全选');
-//							break;
-//					};
+            switch(obj.event) {
+                case 'add':
+                    var data = checkStatus.data;
+                    layer.open({
+                        type : 1,
+                        content : $("#addemployee"),//这里弹出的内容是div的id为addemployee
+                        title : '添加员工信息',
+                        area : [ '700px', '500px' ]
+                    });
+                    break;
+
+            };
         });
 
         //ajax添加提交事件,  此处搭配添加操作弹出层
@@ -253,8 +254,20 @@
             //console.log(obj)
             if(obj.event === 'del') {
                 layer.confirm('真的删除行么', function(index) {
-                    obj.del();
-                    layer.close(index);
+                    $.ajax({
+                        type: 'POST',
+                        url: "delectEmployee?empid="+data.empid,
+                        dataType: 'json',
+                        success: function(data){
+                            console.log(data.msg);
+                            if(data.msg=="删除成功")
+                                layer.msg('已删除!',{icon:1,time:2000});
+                            window.location.reload();
+                        },
+                        error:function(data) {
+                            console.log(data.msg);
+                        },
+                    });
                 });
             } else if(obj.event === 'edit') {
                 layer.prompt({

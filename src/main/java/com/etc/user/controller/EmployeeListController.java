@@ -12,7 +12,9 @@ import com.etc.utils.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -25,14 +27,13 @@ public class EmployeeListController {
 
     @RequestMapping(value = "listEmployee")
     @ResponseBody
-    public PageData<Employee> listEmployee(Integer page, Integer pageSize, String content){
+    public PageData<Employee> listEmployee(Integer page, Integer limit, String content){
         if (content == null) {
             content = "";
         }
 
-        PageData<Employee> pd = employeeService.getEmployeeByPage(1, 10, content);
+        PageData<Employee> pd = employeeService.getEmployeeByPage(page, limit, content);
         List<Employee> list = pd.getData();
-
        pd.setCode(0);
        pd.setMsg("请求成功");
        return pd ;
@@ -51,7 +52,8 @@ public class EmployeeListController {
         return commonMessage;
     }
 
-    @RequestMapping("delectEmployee")
+    @RequestMapping(value = "delectEmployee", method = RequestMethod.POST)
+    @ResponseBody
     public CommonMessage delectEmployee(Integer empid){
         CommonMessage commonMessage = new CommonMessage();
         boolean flag = employeeService.delectByPrimaryKey(empid);
@@ -64,10 +66,21 @@ public class EmployeeListController {
 
     }
 
-    @RequestMapping("addEmployee")
-    public CommonMessage addEmployee(Employee employee){
+    @RequestMapping(value = "addEmployee",method = RequestMethod.POST)
+    @ResponseBody
+    public CommonMessage addEmployee(@RequestBody Employee employee){
+        Employee emp = new Employee();
+        emp.setEmpid(null);
+        emp.setEmpname(employee.getEmpname());
+        emp.setEmppassword(employee.getEmppassword());
+        emp.setEmpsex(employee.getEmpsex());
+        emp.setEmpphone(employee.getEmpphone());
+        emp.setEmpentryday(employee.getEmpentryday());
+        emp.setEmpbirthday(employee.getEmpbirthday());
+        emp.setEmppicture(employee.getEmppicture());
+        emp.setEmpstatus(employee.getEmpstatus());
         CommonMessage commonMessage = new CommonMessage();
-        boolean flag = employeeService.insert(employee);
+        boolean flag = employeeService.insert(emp);
         if (flag){
             commonMessage.setMsg("增加成功");
         }else {
