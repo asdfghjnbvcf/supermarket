@@ -52,5 +52,10 @@ public class TwoLevelServiceImpl implements TwoLevelService{
         return twoLevelDao.updateByPrimaryKey(twoLevel)>0;
     }
 
+    @Override
+    public List<TwoLevel> listTwoLevelByOneLeveId ( Integer onelevelid ) {
+        return twoLevelDao.listTwoLevelByOneLeveId(onelevelid);
+    }
+
 
 }

@@ -15,12 +15,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("admin.action")
 public class GoodsController {
     @Autowired
     private GoodsService goodsService;
+    @Autowired
+    private TwoLevelService twoLevelService;
 
     /**
      *
@@ -38,6 +43,13 @@ public class GoodsController {
         pd.setCode(0);
         pd.setMsg("ok");
         return pd;
+    }
+    @RequestMapping("selectByOneLevelId")
+    @ResponseBody
+    public List<TwoLevel> selectByOneLevaelValue( Integer onelevelid){
+        System.out.println(onelevelid);
+        List<TwoLevel> twoLevelList=twoLevelService.listTwoLevelByOneLeveId(onelevelid);
+        return twoLevelList;
     }
     @RequestMapping("editGoodsName")
     @ResponseBody

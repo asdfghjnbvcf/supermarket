@@ -21,7 +21,8 @@ public class SupermarketApplicationTests {
     private GoodsService goodsService;
     @Test
     public void contextLoads () {
-        goodsService.listGoodsByPage(1,5,"").getData().forEach(System.out::println);
+       // goodsService.listGoodsByPage(1,5,"").getData().forEach(System.out::println);
+        twoLevelService.listTwoLevelByOneLeveId(1).forEach(System.out::println);
 
     }
 

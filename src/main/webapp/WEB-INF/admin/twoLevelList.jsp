@@ -75,7 +75,7 @@
 </div>
 </div>
 <table class="layui-hide" id="test" lay-filter="test"></table>
-s
+
 
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
