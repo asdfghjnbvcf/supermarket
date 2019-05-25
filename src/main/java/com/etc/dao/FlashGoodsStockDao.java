@@ -30,4 +30,7 @@ public interface FlashGoodsStockDao {
 
     //根据库存ID修改记录（参数可变）
     int updateByPrimaryKey(FlashGoodsStock record);
+
+    //根据秒杀商品ID查询该商品的库存与销售量
+    FlashGoodsStock getFlashGoodsStockByFlashGoodsId(Integer fgid);
 }

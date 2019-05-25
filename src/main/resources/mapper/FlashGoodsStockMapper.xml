@@ -79,4 +79,6 @@
       flashgoodsid = #{flashgoodsid,jdbcType=INTEGER}
     where flashgoodsstockid = #{flashgoodsstockid,jdbcType=INTEGER}
   </update>
+
+
 </mapper>
