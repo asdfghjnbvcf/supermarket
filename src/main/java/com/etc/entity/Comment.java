@@ -22,22 +22,13 @@ public class Comment implements Serializable{
     private String commentpicture;
 
     //评论时间
-    private Date commenttime;
+    private String commenttime;
 
     //评论等级（好评、中评、差评）
     private Integer commentlevel;
 
-    public Comment() {
-    }
-
-    public Comment(Integer commentid, Integer orderid, String commentcontent, String commentpicture, Date commenttime, Integer commentlevel) {
-        this.commentid = commentid;
-        this.orderid = orderid;
-        this.commentcontent = commentcontent;
-        this.commentpicture = commentpicture;
-        this.commenttime = commenttime;
-        this.commentlevel = commentlevel;
-    }
+    //订单编号
+    private String ordernum;
 
     public Integer getCommentid() {
         return commentid;
@@ -60,7 +51,7 @@ public class Comment implements Serializable{
     }
 
     public void setCommentcontent(String commentcontent) {
-        this.commentcontent = commentcontent == null ? null : commentcontent.trim();
+        this.commentcontent = commentcontent;
     }
 
     public String getCommentpicture() {
@@ -68,14 +59,14 @@ public class Comment implements Serializable{
     }
 
     public void setCommentpicture(String commentpicture) {
-        this.commentpicture = commentpicture == null ? null : commentpicture.trim();
+        this.commentpicture = commentpicture;
     }
 
-    public Date getCommenttime() {
+    public String getCommenttime() {
         return commenttime;
     }
 
-    public void setCommenttime(Date commenttime) {
+    public void setCommenttime(String commenttime) {
         this.commenttime = commenttime;
     }
 
@@ -87,6 +78,14 @@ public class Comment implements Serializable{
         this.commentlevel = commentlevel;
     }
 
+    public String getOrdernum() {
+        return ordernum;
+    }
+
+    public void setOrdernum(String ordernum) {
+        this.ordernum = ordernum;
+    }
+
     @Override
     public String toString() {
         return "Comment{" +
@@ -94,8 +93,22 @@ public class Comment implements Serializable{
                 ", orderid=" + orderid +
                 ", commentcontent='" + commentcontent + '\'' +
                 ", commentpicture='" + commentpicture + '\'' +
-                ", commenttime=" + commenttime +
+                ", commenttime='" + commenttime + '\'' +
                 ", commentlevel=" + commentlevel +
+                ", ordernum='" + ordernum + '\'' +
                 '}';
+    }
+
+    public Comment() {
+    }
+
+    public Comment(Integer commentid, Integer orderid, String commentcontent, String commentpicture, String commenttime, Integer commentlevel, String ordernum) {
+        this.commentid = commentid;
+        this.orderid = orderid;
+        this.commentcontent = commentcontent;
+        this.commentpicture = commentpicture;
+        this.commenttime = commenttime;
+        this.commentlevel = commentlevel;
+        this.ordernum = ordernum;
     }
 }
