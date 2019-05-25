@@ -1,9 +1,19 @@
 package com.etc.entity;
 
+import java.util.List;
 public class TwoLevel {
     private Integer twolevelid;
     private Integer onelevelid;
+    private String onelevelname;
     private String twolevelname;
+
+    public String getOnelevelname () {
+        return onelevelname;
+    }
+
+    public void setOnelevelname ( String onelevelname ) {
+        this.onelevelname = onelevelname;
+    }
 
     public Integer getTwolevelid () {
         return twolevelid;
@@ -34,6 +44,7 @@ public class TwoLevel {
         return "TwoLevel{" +
                 "twolevelid=" + twolevelid +
                 ", onelevelid=" + onelevelid +
+                ", onelevelname='" + onelevelname + '\'' +
                 ", twolevelname='" + twolevelname + '\'' +
                 '}';
     }
@@ -41,6 +52,13 @@ public class TwoLevel {
     public TwoLevel ( Integer twolevelid, Integer onelevelid, String twolevelname ) {
         this.twolevelid = twolevelid;
         this.onelevelid = onelevelid;
+        this.twolevelname = twolevelname;
+    }
+
+    public TwoLevel ( Integer twolevelid, Integer onelevelid, String onelevelname, String twolevelname ) {
+        this.twolevelid = twolevelid;
+        this.onelevelid = onelevelid;
+        this.onelevelname = onelevelname;
         this.twolevelname = twolevelname;
     }
 

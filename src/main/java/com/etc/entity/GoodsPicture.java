@@ -9,13 +9,13 @@ import java.io.Serializable;
  * 时间:2019/5/23 17:58
  */
 public class GoodsPicture implements Serializable{
-    //商品价格ID
+    //商品图片ID
     private Integer pictureid;
 
-    //商品价格
+    //商品ID
     private Integer goodsid;
 
-    //商品价格
+    //商品图片路径
     private String pictureurl;
 
     public GoodsPicture() {

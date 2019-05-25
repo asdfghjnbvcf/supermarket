@@ -42,14 +42,14 @@
 
             <div class="am-tabs" id="doc-my-tabs">
                 <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
-                    <li class="am-active"><a href="">用户注册</a></li>
+                    <li class=""><a>用户注册</a></li>
                 </ul>
                 <div class="am-tabs-bd">
                     <div class="am-tab-panel am-active">
-                        <form action="#" method="post">
+                        <form action="#" method="post" id="registerForm">
                             <div class="user-email">
-                                <label for="memberName"><i class="am-icon-user"></i></label>
-                                <input type="text" name="userName" id="memberName" required="required"
+                                <label for="userName"><i class="am-icon-user"></i></label>
+                                <input type="text" name="userName" id="userName" required="required"
                                        placeholder="请输入用户名">
                             </div>
                             <div class="user-pass">
@@ -71,11 +71,11 @@
                                 <label for="code"><i class="am-icon-code-fork"></i></label>
                                 <input type="tel" name="code" required="required" id="code" placeholder="请输入验证码">
                                 <button id="huoqu" type="button" class="am-btn-xs am-btn-secondary am-round"
-                                        style="font-size:18px;height:40px;width:55px" onclick="huoqus()" disabled>获取
+                                        style="font-size:18px;height:40px;width:55px"  disabled>获取
                                 </button>
                             </div>
                             <div class="am-cf">
-                                <input type="button" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+                                <input type="button" name="" value="注册" id="register" class="am-btn am-btn-primary am-btn-sm am-fl">
                                 <span><a href="${path}/user.action/toLogin">已有账号？前去登录</a></span>
                             </div>
                         </form>
@@ -99,10 +99,10 @@
                         $.ajax({
                             url: "${path}/user.action/getUserByUserPohone",
                             data: {
-                                "phone": phone
+                                "userPhone": phone
                             },
                             success: function (data) {
-                                alert(data.msg)
+
                                 if (data.msg === "手机号已被注册") {
                                     //tips层
                                     layui.use(['laypage','layer' ],function() {
@@ -123,15 +123,28 @@
 
                                             $("#huoqu").attr("disabled", "disabled");
                                             $("#huoqu").css("background", "#CCCCCC");
-                                            var alltime = 3;
+                                            var alltime = 60;
 
                                             $.ajax({
                                                 type: "post", //提交方式
-                                                url: "",//路径
+                                                url: "${path}/user.action/sendSms",//路径
                                                 data: {
                                                     "phone": phone
                                                 },//数据，这里使用的是Json格式进行传输
                                                 success: function (result) {//返回数据根据结果进行相应的处理
+
+                                                        if (result.msg=="手机号已被注册，验证码发送失败") {
+                                                            layui.use(['laypage','layer' ],function() {
+                                                                var laypage = layui.laypage, layer = layui.layer;
+                                                                layer.msg(result.msg,{icon : 2,time : 2000	})
+                                                            });
+                                                        }else {
+                                                            layui.use(['laypage','layer' ],function() {
+                                                                var laypage = layui.laypage, layer = layui.layer;
+                                                                layer.msg(result.msg,{icon : 1,time : 2000	})
+                                                            });
+                                                        }
+
                                                 }
 
                                             })
@@ -161,44 +174,94 @@
                 } else {
                     layui.use(['laypage','layer' ],function() {
                         var laypage = layui.laypage, layer = layui.layer;
-                        layer.msg("手机号码有误",{icon : 2,time : 2000	})
+                        layer.tips("手机号有误","#phone")
                     });
                     $("#huoqu").attr('disabled');
                 }
-
             });
 
         </script>
         <script type="text/javascript">
             $("#passwordRepeat").blur(function () {
                 if ($("#passwordRepeat").val() != $("#password").val()) {
-                    $("#msg").val("两次密码不一致");
-                    alert("两次密码不一致")
+                    layui.use(['laypage','layer' ],function() {
+                        var laypage = layui.laypage, layer = layui.layer;
+                        layer.tips("两次密码不一致","#passwordRepeat")
+                    });
                 }
             });
-
         </script>
         <script type="text/javascript">
-            $("#memberName").blur(function () {
-                if ($("#memberName").val() != "" && $("#memberName").val() != null)
-                    $.ajax({
-                            type: "post",
-                            url: "${pageContext.request.contextPath}/member/isuser",
-                            data: {"memberName": $("#memberName").val()},
-                            success: function (result) {
-                                if (result == "true") {
-                                    alert("用户名可用");
-                                } else {
-                                    alert("用户名已经存在");
-                                }
+
+            layui.use(['laypage','layer' ],function() {
+                var laypage = layui.laypage, layer = layui.layer;
+
+                var phonerge = /^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/;
+
+            $("#register").click(function () {
+
+                if ($("#userName").val()==null || $("#userName").val()== "") {
+
+                    layer.tips("用户名不能为空","#userName")
+
+                }else if($("#password").val()==null || $("#password").val()==""){
+
+                        layer.tips("密码不能为空","#password")
+
+                }else if ($("#passwordRepeat").val() != $("#password").val()) {
+
+                        layer.tips("两次密码不一致","#passwordRepeat")
+
+                }else if ($("#phone").val() == null && $("#phone").val() == ""){
+
+                    layer.tips("手机号不能为空","#phone")
+
+                }else if ( !phonerge.test($("#phone").val())){
+
+                    layer.tips("手机号有误","#phone")
+
+                }
+                else if ($("#code").val()==null || $("#code").val() == "") {
+
+                    layer.tips("验证码不能为空","#code")
+
+                }else if ($("#phone").val() != null && $("#phone").val() != "" && phonerge.test(phone)){
+
+                }
+                else if ($("#password").val()!=null && $("#password").val()!="" && $("#passwordRepeat").val() == $("#password").val() && $("#userName").val()!=null ||
+                    $("#userName").val()!= "" && $("#code").val()!=null || $("#code").val() != "" && $("#phone").val() != null && $("#phone").val() != "" &&
+                    phonerge.test($("#phone").val())){
+                   $.ajax({
+                       url : "${path}/user.action/userRegister",
+                        type:"post",
+                        dataType: "json",
+                        data :{
+                           "username":$("#userName").val(),
+                            "userpassword":$("#password").val(),
+                           "userphone":$("#phone").val(),
+                           "code" : $("#code").val()
+                        },success :function (data) {
+                            if (data.msg=="注册成功"){
+                                layer.msg(data.msg,{icon : 1,time : 2000	},function () {
+                                    //注册成功跳转到登录界面
+                                    location.href="${path}/user.action/toLogin";
+                                });
+
+                            }else {
+                                //注册失败，刷新页面
+                                layer.msg(data.msg,{icon : 2,time : 2000	},function () {
+                                    location.reload();
+                                });
                             }
                         }
-                    )
+                    });
+                }
+
 
             });
-
-
+            });
         </script>
+
 </body>
 
 

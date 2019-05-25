@@ -85,5 +85,6 @@
     <include refid="Base_Column_List" />
     from flashsale
     where DATE_FORMAT(flashstarttime,'%Y-%m-%d') = curdate()
+    order BY  flashstarttime
   </select>
 </mapper>

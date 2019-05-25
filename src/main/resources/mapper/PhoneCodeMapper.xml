@@ -68,4 +68,13 @@
       code = #{code,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <insert id="savePhoneCode" parameterType="com.etc.entity.PhoneCode">
+        insert into phonecode(phone,code) value (#{phone},#{code})
+    </insert>
+    <delete id="deletePhoneCodeByPhone" parameterType="java.lang.String">
+        delete from phonecode where  phone = #{phone} and code =#{code}
+    </delete>
+    <select id="selectPhoneCodeByPhoneAndCode"  resultMap="BaseResultMap">
+        select * from phonecode where phone=#{phone} and code=#{code}
+    </select>
 </mapper>

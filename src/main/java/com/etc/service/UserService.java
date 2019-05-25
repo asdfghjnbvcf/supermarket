@@ -14,5 +14,12 @@ public interface UserService {
      * @param userPhone 要查询的手机号
      * @return 是否存在该手机号的用户
      */
-    boolean getUserByUserPhone(String userPhone);
+    User getUserByUserPhone(String userPhone);
+
+    /**
+     * 用户注册的方法
+     * @param user 用户信息
+     * @return 是否成功
+     */
+    boolean saveUser(User user);
 }
