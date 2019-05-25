@@ -21,8 +21,7 @@ public class SupermarketApplicationTests {
 
     @Test
     public void testredis(){
-      FlashGoodsMessagePo po = flashGoodsDao.getFlashGoodsMessageByFlashGoodsId(3);
-        System.out.println(po);
+
     }
 
 

@@ -8,9 +8,10 @@
     <result column="commentpicture" jdbcType="VARCHAR" property="commentpicture" />
     <result column="commenttime" jdbcType="TIMESTAMP" property="commenttime" />
     <result column="commentlevel" jdbcType="INTEGER" property="commentlevel" />
+    <result column="ordernum" jdbcType="VARCHAR" property="ordernum" />
   </resultMap>
   <sql id="Base_Column_List">
-    commentid, orderid, commentcontent, commentpicture, commenttime, commentlevel
+    commentid, orderid, commentcontent, commentpicture, commenttime, commentlevel, ordernum
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -103,4 +104,35 @@
       commentlevel = #{commentlevel,jdbcType=INTEGER}
     where commentid = #{commentid,jdbcType=INTEGER}
   </update>
+
+  <!-- 查询所有评论 -->
+  <select id="selectAllComment"  resultMap="BaseResultMap">
+    select
+    c.commentid,c.orderid,c.commentcontent,c.commentpicture,c.commenttime,c.commentlevel,orders.ordernum
+    FROM `comment` c
+    INNER JOIN orders
+    ON c.orderid=orders.orderid
+  </select>
+
+  <!-- 分页+模糊查询 -->
+  <select id="selectCommentByPage"  resultMap="BaseResultMap">
+    select
+    c.commentid,c.orderid,c.commentcontent,c.commentpicture,c.commenttime,c.commentlevel,orders.ordernum
+    FROM `comment` c
+    INNER JOIN orders
+    ON c.orderid=orders.orderid
+    <where>
+      commentcontent LIKE concat("%",#{content},"%")
+    </where>
+    limit #{start},#{pageSize}
+  </select>
+
+  <!-- 查询总记录数 -->
+  <select id="selectCount" resultType="java.lang.Integer">
+    select COUNT(1)
+    FROM `comment` c INNER JOIN orders ON c.orderid=orders.orderid
+    <where>
+      commentcontent LIKE concat("%",#{content},"%")
+    </where>
+  </select>
 </mapper>

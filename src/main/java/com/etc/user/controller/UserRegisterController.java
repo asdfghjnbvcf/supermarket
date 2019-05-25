@@ -33,7 +33,6 @@ public class UserRegisterController {
     /**
      * 注册发送验证码的控制器
      * 接收手机号，发送相应的验证码
-     *
      * @param phone 要发送验证码的手机号
      * @return 返回发送成功或者发送失败
      */
@@ -68,15 +67,6 @@ public class UserRegisterController {
         return "user/login";
     }
 
-    /**
-     * 注册界面跳转至首页的方法
-     *
-     * @return 首页的地址
-     */
-    @RequestMapping("toHome")
-    public String toHmoe() {
-        return "user/home";
-    }
 
     /**
      * 前台AJAX校验手机号是否已被注册的方法
