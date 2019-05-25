@@ -53,4 +53,20 @@ public class UserServiceImpl implements UserService {
 
         return userDao.saveUser(user);
     }
+
+
+    /**
+     * 用户登录查询用户信息的方法
+     * @param userphone  用户的手机号
+     * @param userpassword 用户的密码
+     * @return 查询到的用户信息
+     */
+    @Override
+    public User getUserByUserPhoneAndUserPassword(String userphone, String userpassword) {
+        String iuserpassword =  MD5Util.getEncodeByMd5(userpassword);
+
+        return userDao.getUserByUserPhoneAndUserPassword(userphone,iuserpassword);
+    }
+
+
 }
