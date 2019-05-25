@@ -34,6 +34,7 @@ public class HomeController {
         List<TwoLevel> listTwo=twoLevelService.listTwoLevel();
         mv.addObject("listOne",listOne);
         mv.addObject("listTwo",listTwo);
+
         return mv;
     }
 

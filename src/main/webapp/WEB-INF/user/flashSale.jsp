@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+
+<c:set var="userid" value="12"/>
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <head>
     <meta charset="UTF-8">
@@ -150,7 +152,7 @@
             filter: alpha(opacity=100);
             opacity: 1;
             background: url(https://cs.kaola.com/sdk//res/img/sdk/bg_floatMsg2x.png) no-repeat;
-            background: url(https://cs.kaola.com/sdk//res/img/sdk/bg_floatMsg.png)9;
+            background: url(https://cs.kaola.com/sdk//res/img/sdk/bg_floatMsg.png);
             background-size: 278px 80px;
             z-index: 1;
         }
@@ -527,21 +529,11 @@
     <!-- ！页面结构！ -->
     <!-- 头部 -->
     <header class="m-header">
-        <a class="link" href="/activity/flashSaleIndex/show.html" target="_blank" title="今日限时购"><i class="icon"></i> <span class="bigText">今日限时购</span> </a> <b class="smallText">本场还剩</b> <span id="js_cd" class="bigText" lefttime="13120871">03:38:24</span> </header>
+        <a class="link" href="#" target="_blank" title="今日秒杀"><i class="icon"></i> <span class="bigText">今日秒杀</span> </a> <b class="smallText" id="smallTextID"></b> <span id="js_cd" class="bigText"></span> </header>
     <!-- 各个时间段导航tab -->
-    <nav id="tabNav" class="m-nav f-cb" style="position: absolute; top: 100px;">
+    <nav id="tabNav" class="m-nav f-cb" style="position: absolute; top: 80px;">
         <div id="tabWrap" class="tabWrap f-cb">
-            <a class="tab f-started" style="width: 180.5px" href="javascript:;" tabid="20190520172908971FlashSale98461801" tabstatus="started" tabtime="00:00" id="auto-id-1558517088829">
-                <!-- 已开抢 --><b class="time">00:00</b><b class="status">已开抢</b> </a>
-            <a class="tab f-started" style="width: 180.5px" href="javascript:;" tabid="20190520172908970FlashSale90243512" tabstatus="started" tabtime="10:00" id="auto-id-1558517088830">
-                <!-- 已开抢 --><b class="time">10:00</b><b class="status">已开抢</b> </a>
-            <a class="tab f-started" style="width: 180.5px" href="javascript:;" tabid="20190521114605073FlashSale97069713" tabstatus="started" tabtime="13:00" id="auto-id-1558517088831">
-                <!-- 已开抢 --><b class="time">13:00</b><b class="status">已开抢</b> </a>
-            <a class="tab f-ing f-select" style="width: 180.5px" href="javascript:;" tabid="20190521114605072FlashSale71986940" tabstatus="ing" tabtime="17:00" id="auto-id-1558517088832">
-                <!-- 抢购中 --><b class="time">17:00&nbsp;<i>抢购中</i></b> </a>
-            <a class="tab f-soon" style="width: 180.5px" href="javascript:;" tabid="20190520172908971FlashSale56440089" tabstatus="soon" tabtime="21:00" id="auto-id-1558517088833">
-                <!-- 即将开始 --><b class="time">21:00</b><b class="status">即将开始</b> </a>
-            <a class="tab f-tomorrow" style="width: 180.5px" href="javascript:;" tabid="tomorrow" tabstatus="tomorrow" tabtime="tomorrow" id="auto-id-1558517088834"><b class="time"><i class="iconfont"></i>明日预告</b></a>
+
         </div>
     </nav>
     <!-- 轮播区域 -->
@@ -551,539 +543,270 @@
         </div>
     </article>
     <!-- 特卖专区 regular实现-->
-    <!-- 商品列表 regular实现-->
-    <article id="goodsList" class="m-goodslist lineOfFour">
-        <section class="goodsWrap f-cb">
 
-            <!--Regular list-->
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/2089406.html?status=1&amp;recId=" target="_blank" title="4件装 | 【嫩肤焕活】德国Q10辅酶精华原液安瓶 嫩肤淡纹 去皱淡斑 2ml/支 28支" data-param="zn=list&amp;zp=1&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload img-lazyloaded" src="//haitao.nosdn1.127.net/b9db06cec16a4df98d3de128c2a67cf61558006561967jvqkvp1z10509.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" data-src="//haitao.nosdn1.127.net/b9db06cec16a4df98d3de128c2a67cf61558006561967jvqkvp1z10509.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" alt="4件装 | 【嫩肤焕活】德国Q10辅酶精华原液安瓶 嫩肤淡纹 去皱淡斑 2ml/支 28支" title="4件装 | 【嫩肤焕活】德国Q10辅酶精华原液安瓶 嫩肤淡纹 去皱淡斑 2ml/支 28支" id="auto-id-1558517088837">
-
-                    <!--Regular if6-->
-
-                    <!--Regular if7-->
-                    <!--Regular if8-->
-
-                    <!--Regular if9-->
-                    <!--Regular if10--><span class="label-lb">4.7折|白条免息</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/2089406.html?status=1&amp;recId=" title="4件装 | 【嫩肤焕活】德国Q10辅酶精华原液安瓶 嫩肤淡纹 去皱淡斑 2ml/支 28支" data-param="zn=list&amp;zp=1&amp;zt=product&amp;st=1"><b>4件装 | </b>【嫩肤焕活】德国Q10辅酶精华原液安瓶 嫩肤淡纹 去皱淡斑 2ml/支 28支</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/2089406.html?status=1&amp;recId=" title="性价比款Balea 紧致淡纹" data-param="zn=list&amp;zp=1&amp;zt=product&amp;st=1">性价比款Balea 紧致淡纹</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if11-->
-                        <span class="yen">¥</span>
-                        <b class="money">159<!--Regular if12--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥340</del></span>
-                        <a class="btn" href="//www.kaola.com/product/2089406.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=1&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if13-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 48%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售48%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if14-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/2126464.html?status=1&amp;recId=" target="_blank" title="Selsun Blue 去屑止痒洗发水-滋养型（蓝色） 200毫升/瓶 2瓶装 保湿去屑" data-param="zn=list&amp;zp=2&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload img-lazyloaded" src="//haitao.nosdn1.127.net/6dcc8c1b97d34b73b1f42a7453a982541522226513047jfaud2l018917.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" data-src="//haitao.nosdn1.127.net/6dcc8c1b97d34b73b1f42a7453a982541522226513047jfaud2l018917.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" alt="Selsun Blue 去屑止痒洗发水-滋养型（蓝色） 200毫升/瓶 2瓶装 保湿去屑" title="Selsun Blue 去屑止痒洗发水-滋养型（蓝色） 200毫升/瓶 2瓶装 保湿去屑" id="auto-id-1558517088838">
-
-                    <!--Regular if15-->
-
-                    <!--Regular if16-->
-                    <!--Regular if17-->
-
-                    <!--Regular if18-->
-                    <!--Regular if19--><span class="label-lb">满2件减20</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/2126464.html?status=1&amp;recId=" title="Selsun Blue 去屑止痒洗发水-滋养型（蓝色） 200毫升/瓶 2瓶装 保湿去屑" data-param="zn=list&amp;zp=2&amp;zt=product&amp;st=1">Selsun Blue 去屑止痒洗发水-滋养型（蓝色） 200毫升/瓶 2瓶装 保湿去屑</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/2126464.html?status=1&amp;recId=" title="清洁头皮 去屑" data-param="zn=list&amp;zp=2&amp;zt=product&amp;st=1">清洁头皮 去屑</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if20-->
-                        <span class="yen">¥</span>
-                        <b class="money">85<!--Regular if21--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥189</del></span>
-                        <a class="btn" href="//www.kaola.com/product/2126464.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=2&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if22-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 52%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售52%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if23-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/2053193.html?status=1&amp;recId=" target="_blank" title="日本进口MoistDiane黛丝恩植萃无硅油 洗护套装 480毫升*2瓶 洗发水护发素 滋润亮泽型 【包邮包税】" data-param="zn=list&amp;zp=3&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload img-lazyloaded" src="//pop.nosdn.127.net/17838886-c87c-4720-9b01-7fa07fbb3e8e?imageView&amp;thumbnail=360x360&amp;quality=85" data-src="//pop.nosdn.127.net/17838886-c87c-4720-9b01-7fa07fbb3e8e?imageView&amp;thumbnail=360x360&amp;quality=85" alt="日本进口MoistDiane黛丝恩植萃无硅油 洗护套装 480毫升*2瓶 洗发水护发素 滋润亮泽型 【包邮包税】" title="日本进口MoistDiane黛丝恩植萃无硅油 洗护套装 480毫升*2瓶 洗发水护发素 滋润亮泽型 【包邮包税】" id="auto-id-1558517088839">
-
-                    <!--Regular if24-->
-
-                    <!--Regular if25-->
-                    <!--Regular if26-->
-
-                    <!--Regular if27-->
-                    <!--Regular if28--><span class="label-lb">4折|券满159减10</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/2053193.html?status=1&amp;recId=" title="日本进口MoistDiane黛丝恩植萃无硅油 洗护套装 480毫升*2瓶 洗发水护发素 滋润亮泽型 【包邮包税】" data-param="zn=list&amp;zp=3&amp;zt=product&amp;st=1">日本进口MoistDiane黛丝恩植萃无硅油 洗护套装 480毫升*2瓶 洗发水护发素 滋润亮泽型 【包邮包税】</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/2053193.html?status=1&amp;recId=" title="植物萃取 滋润亮泽发质" data-param="zn=list&amp;zp=3&amp;zt=product&amp;st=1">植物萃取 滋润亮泽发质</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if29-->
-                        <span class="yen">¥</span>
-                        <b class="money">204<!--Regular if30--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥512</del></span>
-                        <a class="btn" href="//www.kaola.com/product/2053193.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=3&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if31-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 45%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售45%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if32-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/1915103.html?status=1&amp;recId=" target="_blank" title="熊野油脂 无硅天然弱酸性马油沐浴露 600ml 3瓶装" data-param="zn=list&amp;zp=4&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload img-lazyloaded" src="//haitao.nosdn2.127.net/ipc73a6569_800_800.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" data-src="//haitao.nosdn2.127.net/ipc73a6569_800_800.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" alt="熊野油脂 无硅天然弱酸性马油沐浴露 600ml 3瓶装" title="熊野油脂 无硅天然弱酸性马油沐浴露 600ml 3瓶装" id="auto-id-1558517088840">
-
-                    <!--Regular if33-->
-
-                    <!--Regular if34-->
-                    <!--Regular if35-->
-
-                    <!--Regular if36-->
-                    <!--Regular if37--><span class="label-lb">5.8折|券满199减20</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/1915103.html?status=1&amp;recId=" title="熊野油脂 无硅天然弱酸性马油沐浴露 600ml 3瓶装" data-param="zn=list&amp;zp=4&amp;zt=product&amp;st=1">熊野油脂 无硅天然弱酸性马油沐浴露 600ml 3瓶装</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/1915103.html?status=1&amp;recId=" title="温和清洁，打开毛孔" data-param="zn=list&amp;zp=4&amp;zt=product&amp;st=1">温和清洁，打开毛孔</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if38-->
-                        <img src="//haitao.nos.netease.com/fd102a89-9a1a-4fc2-84ef-315c27175fcb_116_45.png" alt="新人价|会员价" height="14px" class="userIdentity">
-
-                        <span class="yen">¥</span>
-                        <b class="money">79<!--Regular if39--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥169</del></span>
-                        <a class="btn" href="//www.kaola.com/product/1915103.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=4&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if40-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 49%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售49%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if41-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/2034622.html?status=1&amp;recId=" target="_blank" title="【孕妇可用】Lavilin&nbsp;欧洲草本腋下狐臭祛味膏&nbsp;50克/瓶&nbsp;72小时长效" data-param="zn=list&amp;zp=5&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload img-lazyloaded" src="//haitao.nosdn1.127.net/db53245adc1a460f91f9a43b28835ff21517982532967jdcnlumm11425.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" data-src="//haitao.nosdn1.127.net/db53245adc1a460f91f9a43b28835ff21517982532967jdcnlumm11425.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" alt="【孕妇可用】Lavilin&nbsp;欧洲草本腋下狐臭祛味膏&nbsp;50克/瓶&nbsp;72小时长效" title="【孕妇可用】Lavilin&nbsp;欧洲草本腋下狐臭祛味膏&nbsp;50克/瓶&nbsp;72小时长效" id="auto-id-1558517088841">
-
-                    <!--Regular if42-->
-
-                    <!--Regular if43-->
-                    <!--Regular if44-->
-
-                    <!--Regular if45-->
-                    <!--Regular if46--><span class="label-lb">4.6折|券满199减20</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/2034622.html?status=1&amp;recId=" title="【孕妇可用】Lavilin&nbsp;欧洲草本腋下狐臭祛味膏&nbsp;50克/瓶&nbsp;72小时长效" data-param="zn=list&amp;zp=5&amp;zt=product&amp;st=1">【孕妇可用】Lavilin&nbsp;欧洲草本腋下狐臭祛味膏&nbsp;50克/瓶&nbsp;72小时长效</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/2034622.html?status=1&amp;recId=" title="孕妇可用的驱味膏" data-param="zn=list&amp;zp=5&amp;zt=product&amp;st=1">孕妇可用的驱味膏</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if47-->
-                        <img src="//haitao.nos.netease.com/fd102a89-9a1a-4fc2-84ef-315c27175fcb_116_45.png" alt="新人价|会员价" height="14px" class="userIdentity">
-
-                        <span class="yen">¥</span>
-                        <b class="money">135<!--Regular if48--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥366</del></span>
-                        <a class="btn" href="//www.kaola.com/product/2034622.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=5&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if49-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 48%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售48%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if50-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/5228588.html?status=1&amp;recId=" target="_blank" title="red seal 红印 小苏打牙膏 100克 极强亮白去渍 3支装" data-param="zn=list&amp;zp=6&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload img-lazyloaded" src="//haitao.nosdn1.127.net/22ba2a527dd14f61b7e3721238adf6961556594725237jv38b4v011194.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" data-src="//haitao.nosdn1.127.net/22ba2a527dd14f61b7e3721238adf6961556594725237jv38b4v011194.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" alt="red seal 红印 小苏打牙膏 100克 极强亮白去渍 3支装" title="red seal 红印 小苏打牙膏 100克 极强亮白去渍 3支装" id="auto-id-1558517088842">
-
-                    <!--Regular if51-->
-
-                    <!--Regular if52-->
-                    <!--Regular if53-->
-
-                    <!--Regular if54-->
-                    <!--Regular if55--><span class="label-lb">满188减30</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/5228588.html?status=1&amp;recId=" title="red seal 红印 小苏打牙膏 100克 极强亮白去渍 3支装" data-param="zn=list&amp;zp=6&amp;zt=product&amp;st=1">red seal 红印 小苏打牙膏 100克 极强亮白去渍 3支装</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/5228588.html?status=1&amp;recId=" title="牙齿洁白神器" data-param="zn=list&amp;zp=6&amp;zt=product&amp;st=1">牙齿洁白神器</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if56-->
-                        <span class="yen">¥</span>
-                        <b class="money">55<!--Regular if57--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥99</del></span>
-                        <a class="btn" href="//www.kaola.com/product/5228588.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=6&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if58-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 54%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售54%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if59-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/2662593.html?status=1&amp;recId=" target="_blank" title="【包税 官方直售】Mistine 蜜丝婷 Amour小金条口红 3.4g/支 " data-param="zn=list&amp;zp=7&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload img-lazyloaded" src="//pop.nosdn.127.net/07f89175-ff9d-404b-9af3-5444258f5de6?imageView&amp;thumbnail=360x360&amp;quality=85" data-src="//pop.nosdn.127.net/07f89175-ff9d-404b-9af3-5444258f5de6?imageView&amp;thumbnail=360x360&amp;quality=85" alt="【包税 官方直售】Mistine 蜜丝婷 Amour小金条口红 3.4g/支 " title="【包税 官方直售】Mistine 蜜丝婷 Amour小金条口红 3.4g/支 " id="auto-id-1558517088843">
-
-                    <!--Regular if60-->
-
-                    <!--Regular if61-->
-                    <!--Regular if62-->
-
-                    <!--Regular if63-->
-                    <!--Regular if64--><span class="label-lb">2.3折|满1元换购</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/2662593.html?status=1&amp;recId=" title="【包税 官方直售】Mistine 蜜丝婷 Amour小金条口红 3.4g/支 " data-param="zn=list&amp;zp=7&amp;zt=product&amp;st=1">【包税 官方直售】Mistine 蜜丝婷 Amour小金条口红 3.4g/支 </a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/2662593.html?status=1&amp;recId=" title="温柔心动女神必备" data-param="zn=list&amp;zp=7&amp;zt=product&amp;st=1">温柔心动女神必备</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if65-->
-                        <span class="yen">¥</span>
-                        <b class="money">64<!--Regular if66--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥282</del></span>
-                        <a class="btn" href="//www.kaola.com/product/2662593.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=7&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if67-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 47%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售47%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if68-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/2337225.html?status=1&amp;recId=" target="_blank" title="【祛粉刺黑头】The Ordinary 30%果酸+2%水杨酸焕肤面膜 AHA 30%+BHA 2% Peeling Solution 30毫升" data-param="zn=list&amp;zp=8&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload img-lazyloaded" src="//pop.nosdn.127.net/93a127ce-2964-42df-9c2e-7698719a357a?imageView&amp;thumbnail=360x360&amp;quality=85" data-src="//pop.nosdn.127.net/93a127ce-2964-42df-9c2e-7698719a357a?imageView&amp;thumbnail=360x360&amp;quality=85" alt="【祛粉刺黑头】The Ordinary 30%果酸+2%水杨酸焕肤面膜 AHA 30%+BHA 2% Peeling Solution 30毫升" title="【祛粉刺黑头】The Ordinary 30%果酸+2%水杨酸焕肤面膜 AHA 30%+BHA 2% Peeling Solution 30毫升" id="auto-id-1558517088844">
-
-                    <!--Regular if69-->
-
-                    <!--Regular if70-->
-                    <!--Regular if71-->
-
-                    <!--Regular if72-->
-                    <!--Regular if73--><span class="label-lb">5.3折</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/2337225.html?status=1&amp;recId=" title="【祛粉刺黑头】The Ordinary 30%果酸+2%水杨酸焕肤面膜 AHA 30%+BHA 2% Peeling Solution 30毫升" data-param="zn=list&amp;zp=8&amp;zt=product&amp;st=1">【祛粉刺黑头】The Ordinary 30%果酸+2%水杨酸焕肤面膜 AHA 30%+BHA 2% Peeling Solution 30毫升</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/2337225.html?status=1&amp;recId=" title="素颜一样自信满满" data-param="zn=list&amp;zp=8&amp;zt=product&amp;st=1">素颜一样自信满满</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if74-->
-                        <span class="yen">¥</span>
-                        <b class="money">84<!--Regular if75--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥159</del></span>
-                        <a class="btn" href="//www.kaola.com/product/2337225.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=8&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if76-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 49%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售49%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if77-->
-            <!--Regular list-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/2070141.html?status=1&amp;recId=" target="_blank" title="Cure 酷韵 东洋 去角质凝胶 温和不刺激 日本进口 250g" data-param="zn=list&amp;zp=9&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload" src="//haitao.nos.netease.com/fdbd43b2-7e38-4833-8fc9-7368b62a0eea.gif" data-src="//haitao.nosdn2.127.net/898a235e439b4af18bbb193447f530bd1551171207127jsljabbj10139.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" alt="Cure 酷韵 东洋 去角质凝胶 温和不刺激 日本进口 250g" title="Cure 酷韵 东洋 去角质凝胶 温和不刺激 日本进口 250g" id="auto-id-1558517088845">
-
-                    <!--Regular if78-->
-
-                    <!--Regular if79-->
-                    <!--Regular if80-->
-
-                    <!--Regular if81-->
-                    <!--Regular if82--><span class="label-lb">7.1折|白条免息</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/2070141.html?status=1&amp;recId=" title="Cure 酷韵 东洋 去角质凝胶 温和不刺激 日本进口 250g" data-param="zn=list&amp;zp=9&amp;zt=product&amp;st=1">Cure 酷韵 东洋 去角质凝胶 温和不刺激 日本进口 250g</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/2070141.html?status=1&amp;recId=" title="如水般质地温和不伤肤" data-param="zn=list&amp;zp=9&amp;zt=product&amp;st=1">如水般质地温和不伤肤</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if83-->
-                        <span class="yen">¥</span>
-                        <b class="money">149<!--Regular if84--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥209</del></span>
-                        <a class="btn" href="//www.kaola.com/product/2070141.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=9&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if85-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 51%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售51%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if86-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/279270.html?status=1&amp;recId=" target="_blank" title="Sulwhasoo 雪花秀 宫中蜜皂2件套" data-param="zn=list&amp;zp=10&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload" src="//haitao.nos.netease.com/fdbd43b2-7e38-4833-8fc9-7368b62a0eea.gif" data-src="//haitao.nos.netease.com/3e27a07fe42c4d37bb6c05d4161b15311553148549787jti8jmoq10152.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" alt="Sulwhasoo 雪花秀 宫中蜜皂2件套" title="Sulwhasoo 雪花秀 宫中蜜皂2件套" id="auto-id-1558517088846">
-
-                    <!--Regular if87-->
-
-                    <!--Regular if88-->
-                    <!--Regular if89-->
-
-                    <!--Regular if90-->
-                    <!--Regular if91--><span class="label-lb">白条免息</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/279270.html?status=1&amp;recId=" title="Sulwhasoo 雪花秀 宫中蜜皂2件套" data-param="zn=list&amp;zp=10&amp;zt=product&amp;st=1">Sulwhasoo 雪花秀 宫中蜜皂2件套</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/279270.html?status=1&amp;recId=" title="痘肌洁面必备，草本天然" data-param="zn=list&amp;zp=10&amp;zt=product&amp;st=1">痘肌洁面必备，草本天然</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if92-->
-                        <img src="//haitao.nos.netease.com/fd102a89-9a1a-4fc2-84ef-315c27175fcb_116_45.png" alt="新人价|会员价" height="14px" class="userIdentity">
-
-                        <span class="yen">¥</span>
-                        <b class="money">179<!--Regular if93--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥360</del></span>
-                        <a class="btn" href="//www.kaola.com/product/279270.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=10&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if94-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 43%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售43%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if95-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/1651831.html?status=1&amp;recId=" target="_blank" title="LΛNEIGE 兰芝 海藻水凝保湿3件套装" data-param="zn=list&amp;zp=11&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload" src="//haitao.nos.netease.com/fdbd43b2-7e38-4833-8fc9-7368b62a0eea.gif" data-src="//haitao.nos.netease.com/61ab46ed1a4a44429ba670caf43214851523857078701jg1t5r3n12673.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" alt="LΛNEIGE 兰芝 海藻水凝保湿3件套装" title="LΛNEIGE 兰芝 海藻水凝保湿3件套装" id="auto-id-1558517088847">
-
-                    <!--Regular if96-->
-
-                    <!--Regular if97-->
-                    <!--Regular if98-->
-
-                    <!--Regular if99-->
-                    <!--Regular if100--><span class="label-lb">白条免息</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/1651831.html?status=1&amp;recId=" title="LΛNEIGE 兰芝 海藻水凝保湿3件套装" data-param="zn=list&amp;zp=11&amp;zt=product&amp;st=1">LΛNEIGE 兰芝 海藻水凝保湿3件套装</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/1651831.html?status=1&amp;recId=" title="水润弹润活力" data-param="zn=list&amp;zp=11&amp;zt=product&amp;st=1">水润弹润活力</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if101-->
-                        <span class="yen">¥</span>
-                        <b class="money">388<!--Regular if102--></b>
-                        <span class="box-marketprice"><del class="marketprice">¥689</del></span>
-                        <a class="btn" href="//www.kaola.com/product/1651831.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=11&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if103-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 45%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售45%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!--Regular if104-->
-
-            <div class="detailWrap f-cb">
-                <a class="pic" href="//www.kaola.com/product/2510134.html?status=1&amp;recId=" target="_blank" title="【张韶涵同款】FAU 再生修复BB霜  含积雪草精华" data-param="zn=list&amp;zp=12&amp;zt=product&amp;st=1">
-
-                    <img class="proImg img-lazyload" src="//haitao.nos.netease.com/fdbd43b2-7e38-4833-8fc9-7368b62a0eea.gif" data-src="//haitao.nosdn1.127.net/7099534735ae4d2fa124b6f45db41e4e1552269900144jt3pf4go14042.jpg?imageView&amp;thumbnail=360x360&amp;quality=85" alt="【张韶涵同款】FAU 再生修复BB霜  含积雪草精华" title="【张韶涵同款】FAU 再生修复BB霜  含积雪草精华" id="auto-id-1558517088848">
-
-                    <!--Regular if105-->
-
-                    <!--Regular if106-->
-                    <!--Regular if107-->
-
-                    <!--Regular if108-->
-                    <!--Regular if109--><span class="label-lb">满2件减30</span>
-
-                </a>
-                <div class="proinfo">
-
-                    <h3 class="tit">
-                        <a class="titLink" target="_blank" href="//www.kaola.com/product/2510134.html?status=1&amp;recId=" title="【张韶涵同款】FAU 再生修复BB霜  含积雪草精华" data-param="zn=list&amp;zp=12&amp;zt=product&amp;st=1">【张韶涵同款】FAU 再生修复BB霜  含积雪草精华</a>
-                        <a class="titLink intro" target="_blank" href="//www.kaola.com/product/2510134.html?status=1&amp;recId=" title="TA是化妆品也是护肤品" data-param="zn=list&amp;zp=12&amp;zt=product&amp;st=1">TA是化妆品也是护肤品</a>
-                    </h3>
-
-                    <div class="act f-cb">
-                        <!--Regular if110-->
-                        <img src="//haitao.nos.netease.com/fd102a89-9a1a-4fc2-84ef-315c27175fcb_116_45.png" alt="新人价|会员价" height="14px" class="userIdentity">
-
-                        <span class="yen">¥</span>
-                        <b class="money">95<!--Regular if111--><i class="tip">起</i></b>
-                        <span class="box-marketprice"><del class="marketprice">¥158</del></span>
-                        <a class="btn" href="//www.kaola.com/product/2510134.html?status=1&amp;recId=" target="_blank" data-param="zn=list&amp;zp=12&amp;zt=product&amp;st=1">去抢购</a>
-                    </div>
-
-                    <!--Regular if112-->
-                    <div class="dlprogress f-cb">
-                        <div class="barWrap">
-                            <div class="bar" style="width: 44%;"></div>
-                        </div>
-                        <div class="remain"><span class="txt-remain">已售44%</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-
-
+    <article id="goodsList" class="m-goodslist lineOfFour" style="height: 500px;">
+        <section class="goodsWrap f-cb" id="showGoodsList">
+            <!-- 商品列表 regular实现-->
         </section>
         <!--Regular if3-->
         <!--Regular if4-->
     </article>
+    <!--
     <article class="m-dlBottomBtn">
         <a class="prev btn " href="javascript:;"><b class="iconfont icon-arrow-left"></b>上一场</a>
         <a class="next btn " href="javascript:;">下一场<b class="iconfont icon-arrow-right"></b></a>
-        <!--Regular if5-->
+
         <a class="tomorrow btn f-dn" href="javascript:;">明日预告<b class="iconfont icon-arrow-right"></b></a>
 
     </article>
+    -->
     <!-- 页面底部按钮 regular实现-->
 </div>
 <!-- 今日限时购主体 END -->
 <a class="m-totop" id="j-go2Top" href="#" style="display:none;"><i class="iconfont"></i>返回顶部</a>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script >
+    <!--页面加载时调用-->
+    $(function () {
+        todayFalshSale()
+    })
+    //  获取今日秒杀活动时间
+    function todayFalshSale() {
+        $.ajax({
+            url:"/flashSale.action/todayFlashSale",
+            type:"GET",
+            success:function (data) {
+                if(data.code==0){//有活动数据
+                    showtodayFlashSale(data.data);
+                }else{//没有活动数据，返回错误信息
+                    alert(data.msg);
+                }
+            },
+            error:function () {
+                alert("客户端请求有误");
+            }
+        });
+    }
+//**********活动时间数据展示********
+//starSignId 标记上次展示的活动ID
+    var starSignId =-1;
+
+    function showtodayFlashSale(data) {
+        var downTime = 0;//倒计时
+        var sign = 0;//1:本场还剩多少时间；2：倒计时；0：不显示
+        //清空原始数据
+        $('#tabWrap').empty();
+        $.each(data,function (i) {
+            var starda = parseInt(data[i].flashstarttime);
+            var endda = parseInt(data[i].flashendtime);
+            starda = new Date(starda);
+            var starhh = starda.getHours();
+            var starmm = starda.getMinutes();
+            endda = new Date(endda);
+            var endhh = endda.getHours();
+            var endmm = endda.getMinutes();
+            var tim = starhh+":"+starmm;
+            var systemda = new Date().getTime();//系统当前时间
+            if(systemda >= starda &&  systemda< endda  ){//秒杀进行中
+                sign = 1;
+                downTime = endda - systemda;
+                //在秒杀中本次的ID与上次秒杀进行中的ID不一致时调用
+                if( starSignId !=data[i].flashsaleid){
+                    starSignId = data[i].flashsaleid;
+                    showGoods(starSignId,1,0);
+                }
+                 $('#tabWrap').append('<a class="tab f-ing f-select" style="width: 180.5px" href="javascript:showGoods('+data[i].flashsaleid+',1,0);"    id="flashsale_"'+data[i].flashsaleid+'>'+
+                    '<b class="time">'+starhh+":"+ starmm+"&nbsp;-&nbsp;"+endhh+":"+endmm+'<i>秒杀中</i></b> </a>');
+            }else if(systemda<starda){//秒杀还未开始
+                if(sign == 0){
+                    sign = 2;
+                    downTime =  starda-systemda;
+                    if( starSignId !=data[i].flashsaleid){
+                        starSignId = data[i].flashsaleid;
+                        showGoods(starSignId,2,tim);
+                    }
+                }
+
+                $('#tabWrap').append('<a class="tab f-soon" style="width: 180.5px" href="javascript:showGoods('+data[i].flashsaleid+',0,\''+tim+'\');"     id="flashsale_"'+data[i].flashsaleid+'>'+
+                '<b class="time">'+starhh+":"+ starmm+"&nbsp;-&nbsp;"+endhh+":"+endmm+'</b><b class="status">即将开始</b> </a>');
+            }else{//秒杀已结束
+                $('#tabWrap').append('<a class="tab f-started" style="width: 180.5px" href="javascript:showGoods('+data[i].flashsaleid+',2,0);"   id="flashsale_"'+data[i].flashsaleid+'>'+
+                    '<b class="time">'+starhh+":"+ starmm+"&nbsp;-&nbsp;"+endhh+":"+endmm+'</b><b class="status">已结束</b> </a>');
+                if(i==(data.length-1)){
+                    if( starSignId !=data[i].flashsaleid){
+                        starSignId = data[i].flashsaleid;
+                        showGoods(starSignId,0,0);
+                    }
+                }
+            }
+        })
+        //倒计时函数模块
+        countDownTime(sign,downTime,data);
+    }
+
+    //*************倒计时模块**************
+    function countDownTime(sign,downTime,data) {
+        $("#smallTextID").empty()
+        $("#js_cd").empty()
+        var hh = 0 ;
+        var mm = 0 ;
+        var ss = 0 ;
+        var time ="";
+        if(downTime >=0){
+            hh = parseInt(downTime /1000/3600);
+            mm = parseInt((downTime-hh*1000*3600)/1000/60);
+            ss = parseInt((downTime-hh*1000*3600-mm*1000*60)/1000);
+            var h = ""+hh;
+            var m = ""+mm;
+            var s = ""+ss;
+            if(h.length<=1){
+                h = "0"+h;
+            }
+            if(m.length<=1){
+                m = "0"+m;
+            }
+            if(s.length<=1){
+                s = "0"+s;
+            }
+            time=h+":"+m+":"+s;
+        }
+        if(sign == 1){//正在抢购中
+
+            $("#smallTextID").append("本场还剩");
+            $("#js_cd").append(time);
+            //alert(time);
+        }else if(sign == 2){
+            $("#smallTextID").append("倒计时");
+            $("#js_cd").append(time);
+        }
+
+        setTimeout(function () {
+            showtodayFlashSale(data);
+        },1000);
+    }
+    //************Ajax请求秒杀商品*******************
+    //flashsaleid:活动ID号
+    // state：活动状态（2未开始，1进行中，0已结束）
+    function showGoods(flashSaleId,state,starda) {
+     // alert(flashsaleid+"::"+state+"::"+starda)
+        $.ajax({
+            url:"/flashgoods.action/showFlashGoodsByFlashSaleId",
+            type:"GET",
+            data:{
+                flashSaleId :flashSaleId
+            },
+            success:function (data) {
+              //  alert(data)
+                if(data.code==0){//有活动数据
+                    $("#showGoodsList").empty();
+                    showGoodsMessage(data.data,state,starda)
+                    //alert(data.data);
+                   // showtodayFlashSale(data.data);
+                }else{//没有活动数据，返回错误信息
+                    alert(data.msg);
+                }
+            },
+            error:function () {
+                alert("客户端请求有误");
+            }
+        });
+    }
+    //**************商品展示******************
+    function showGoodsMessage(data,sign,starda) {
+        $("#showGoodsList").empty();
+
+            if(sign == 0){//即将开始
+                $.each(data,function (i) {
+                    $("#showGoodsList").append('<div class="detailWrap f-cb">'+
+                    '<a class="pic clickButton" href="javascript:;" content="0"  name="'+data[i].flashgoodsid+'" title="'+data[i].goodstitle+'" data-param="zn=list&amp;zp=5&amp;zt=product&amp;st=2">'+
+                    '<img class="proImg img-lazyload img-lazyloaded" src="'+data[i].pictureurl+'?imageView&amp;thumbnail=360x360&amp;quality=85"  alt="'+data[i].goodstitle+'" title="'+data[i].goodstitle+'" >'+
+                    '<span class="start-hint">将于今日 '+starda+'正式开抢</span>'+
+                    '</a>'+
+                    '<div class="proinfo">'+
+                    '<h3 class="tit">'+
+                    '<a class="titLink clickButton"  content="0" name="'+data[i].flashgoodsid+'"  href="javascript:;" title="'+data[i].goodsname+'" data-param="zn=list&amp;zp=5&amp;zt=product&amp;st=2">'+data[i].goodsname+'</a>'+
+                    '</h3>'+
+                    '<div class="act f-cb act-blue">'+
+                    '<span class="yen">¥</span>'+
+                    '<b class="money">'+data[i].flashgoodsprice+'</b>'+
+                    '<span class="box-marketprice"><del class="marketprice">¥'+data[i].goodsprice+'</del></span>'+
+                    '<a class="btn clickButton" content="0" href="javascript:;"  name="'+data[i].flashgoodsid+'"  data-param="zn=list&amp;zp=5&amp;zt=product&amp;st=2">即将开始</a>'+
+                    '</div>'+
+                    '<p class="status-desc blue">限量'+data[i].stocknum+'件</p>'+
+                    '</div>'+
+                    '</div>');
+                })
+            }else if(sign == 1){//秒杀进行中
+                $.each(data,function (i) {
+                  //  alert(data);
+                    $("#showGoodsList").append('<div class="detailWrap f-cb">'+
+                    '<a class="pic clickButton" content="1"  name="'+data[i].flashgoodsid+'"  href="javascript:;"  title="'+data[i].goodstitle+'" data-param="zn=list&amp;zp=2&amp;zt=product&amp;st=1">'+
+                    '<img class="proImg img-lazyload img-lazyloaded" src="'+data[i].pictureurl+'?imageView&amp;thumbnail=360x360&amp;quality=85"  alt="'+data[i].goodstitle+'" title="'+data[i].goodstitle+'" >'+
+                     '</a>'+
+                    '<div class="proinfo">'+
+                    '<h3 class="tit">'+
+                    '<a class="titLink clickButton"  content="1" name="'+data[i].flashgoodsid+'"   href="javascript:;" title="'+data[i].goodsname+'" data-param="zn=list&amp;zp=2&amp;zt=product&amp;st=1">'+data[i].goodsname+'</a>'+
+                    '</h3>'+
+                    '<div class="act f-cb">'+
+                    '<span class="yen">¥</span>'+
+                    '<b class="money">'+data[i].flashgoodsprice+'</b>'+
+                    '<span class="box-marketprice"><del class="marketprice">¥'+data[i].goodsprice+'</del></span>'+
+                    '<a class="btn clickButton" content="1" href="javascript:;" name="'+data[i].flashgoodsid+'"  data-param="zn=list&amp;zp=2&amp;zt=product&amp;st=1">去抢购</a>'+
+                    '</div>'+
+                    '<div class="dlprogress f-cb">'+
+                    '<div class="barWrap">'+
+                    '<div class="bar" style="width:'+parseInt((data[i].sellnum/data[i].stocknum)*100)+' %;"></div>'+
+                    '</div>'+
+                    '<div class="remain"><span class="txt-remain">已售'+parseInt((data[i].sellnum/data[i].stocknum)*100)+'%</span></div>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>');
+                })
+            }else{//秒杀结束
+                $.each(data,function (i) {
+                    $("#showGoodsList").append('<div class="detailWrap f-cb">'+
+                        '<a class="pic clickButton" content="2"  name="'+data[i].flashgoodsid+'"  href="javascript:;"  title="'+data[i].goodstitle+'" data-param="zn=list&amp;zp=2&amp;zt=product&amp;st=1">'+
+                        '<img class="proImg img-lazyload img-lazyloaded" src="'+data[i].pictureurl+'?imageView&amp;thumbnail=360x360&amp;quality=85"  alt="'+data[i].goodstitle+'" title="'+data[i].goodstitle+'" >'+
+                        '</a>'+
+                        '<div class="proinfo">'+
+                        '<h3 class="tit">'+
+                        '<a class="titLink" content="2"  name="'+data[i].flashgoodsid+'"   href="javascript:;" title="'+data[i].goodsname+'" data-param="zn=list&amp;zp=5&amp;zt=product&amp;st=2">'+data[i].goodsname+'</a>'+
+                        '</h3>'+
+                        '<div class="act f-cb act-blue">'+
+                        '<span class="yen">¥</span>'+
+                        '<b class="money">'+data[i].flashgoodsprice+'</b>'+
+                        '<span class="box-marketprice"><del class="marketprice">¥'+data[i].goodsprice+'</del></span>'+
+                        '<p class="status-desc blue">销量'+data[i].sellnum+'件</p>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>');
+                })
+            }
+
+    }
+    //***********判断用户是否登录******************
+    $(document).on("click",".clickButton",function () {
+        var userId = "${userid}";
+        if(userId=="") {
+            alert("为了不影响你的抢购，请先登录")
+            window.location.href="login";
+        }else{
+           var goodsid = $(this).attr("name");
+           var content = $(this).attr("content");
+           if(content==0){//即将开始
+               alert("该商品的秒杀活动即将开始，请耐心等待");
+           }else if(content==1){//秒杀中
+                //跳转到秒杀详情页
+               window.location.href="flashIntroduction?flashGoodsId="+goodsid;
+           }else {//已结束
+                alert("该商品的秒杀活动已结束");
+           }
+
+        }
+    })
+
+</script>
 
 </body>
 </html>
