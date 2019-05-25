@@ -43,6 +43,7 @@ public interface FlashGoodsDao {
     List<FlashGoodsNumPo> listSelectFlashSaleGoodsNumBySaleId(@Param("fsid") Integer fsid);
 
 
-
+    //根据秒杀商品ID，查询该商品的部分详情信息
+   FlashGoodsMessagePo getFlashGoodsMessageByFlashGoodsId(@Param("fgid") Integer fgid);
 
 }

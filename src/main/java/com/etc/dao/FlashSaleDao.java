@@ -35,4 +35,5 @@ public interface FlashSaleDao {
 
     //根据系统日期获取今日所有的秒杀活动
     List<FlashSale> listTodaySale();
+
 }

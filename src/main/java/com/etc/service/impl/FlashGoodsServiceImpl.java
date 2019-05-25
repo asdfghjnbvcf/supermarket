@@ -7,6 +7,7 @@ import com.etc.redis.FlashGoodsKey;
 import com.etc.redis.RedisService;
 import com.etc.service.FlashGoodsService;
 import com.etc.service.FlashSaleService;
+import com.etc.vo.FlashGoodsDetialMessageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +35,7 @@ public class FlashGoodsServiceImpl implements FlashGoodsService{
         pos = redisService.getList(FlashGoodsKey.getFlashGoodsList,String.valueOf(saleId));
 
         if(pos==null||pos.size()<=0){
-           // System.out.println("调用数据库2"+saleId);
+            System.out.println("调用数据库2"+saleId);
             pos = flashGoodsDao.listSelectFlashGoodsBySaleId(saleId);
             if (pos!=null && pos.size()>0){
                 //添加到缓存中
@@ -43,5 +44,11 @@ public class FlashGoodsServiceImpl implements FlashGoodsService{
         }
 
         return pos;
+    }
+
+    //根据秒杀商品ID查询该商品的相关信息
+    @Override
+    public FlashGoodsDetialMessageVo selectFlashGoodsDetialMeaasageByFlashGoodsId(Integer fgId) {
+        return null;
     }
 }
