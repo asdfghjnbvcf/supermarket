@@ -11,7 +11,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"></c:set>
 <head>
     <meta charset="utf-8">
-    <title>layui</title>
+    <title>员工列表</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,12 +22,7 @@
 
 <body>
 <div class="layui-form-item">
-    <div class="layui-inline">
-        <label class="layui-form-label">员工ID</label>
-        <div class="layui-input-block">
-            <input type="text" name="empId" placeholder="请输入" autocomplete="off" class="layui-input">
-        </div>
-    </div>
+
     <div class="layui-inline">
         <label class="layui-form-label">员工名</label>
         <div class="layui-input-block">
@@ -36,21 +31,92 @@
     </div>
 
     <div class="layui-inline">
-        <label class="layui-form-label">性别</label>
-        <div class="layui-input-block">
-            <select name="empSex">
-                <option value="0">不限</option>
-                <option value="1">男</option>
-                <option value="2">女</option>
-            </select>
-        </div>
-    </div>
-    <div class="layui-inline">
         <button class="layui-btn layuiadmin-btn-useradmin" lay-submit lay-filter="LAY-user-front-search">
             <i class="layui-icon layui-icon-search layuiadmin-button-btn"></i>
         </button>
     </div>
 </div>
+</div>
+
+<!-- 添加员工信息的表单 -->
+<div id="addemployee" style="display: none">
+    <!-- 这里给一个弹出表单 -->
+    <form class="layui-form" lay-filter="example">
+        <div class="layui-form-item">
+            <label class="layui-form-label">姓名</label>
+            <div class="layui-input-block">
+                <input type="text" name="empname" id="empname" lay-verify="title"
+                       autocomplete="off" placeholder="请输入姓名"
+                       class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-block">
+                <input type="password" name="emppassword" id="emppassword" placeholder="请输入密码"
+                       autocomplete="off" class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">手机号</label>
+            <div class="layui-input-block">
+                <input type="text" name="empphone" id="empphone" lay-verify="title"
+                       autocomplete="off" placeholder="请输入手机号"
+                       class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">性别</label>
+            <div class="layui-input-block">
+                <input type="radio" name="empsex" id="empsex-1" value="男" title="男" checked="">
+                <input type="radio" name="empsex" id="empsex-2" value="女" title="女">
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="time1">
+            <label class="layui-form-label">入职时间</label>
+            <div class="layui-input-block">
+                <select name="empentryday" id="empentryday" lay-filter="aihao">
+                    <span id="view"></span>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="time2">
+            <label class="layui-form-label">生日时间</label>
+            <div class="layui-input-block">
+                <select name="empbirthday" id="empbirthday" lay-filter="aihao">
+                    <span id="view1"></span>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">头像</label>
+            <div class="layui-input-block">
+               <input type="text" value="请在个人中心页面添加" name="emppicture" id="emppicture" readonly/>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="text" name="empstatus" id="empstatus" lay-verify="title"
+                       autocomplete="off" placeholder="默认状态"
+                       class="layui-input" value="0" readonly>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn btn-update" type="button" lay-submit=""
+                        lay-filter="demo1">保存</button>
+            </div>
+        </div>
+    </form>
+
 </div>
 
 <table class="layui-hide" id="test" lay-filter="test"></table>
@@ -80,16 +146,66 @@
             elem: '#test'
             //  ,url:'/test/table/demo1.json'
             ,
-            url: '' //模拟接口
+            url: 'admin.action/listEmployee' //数据接口
             ,
             toolbar: '#toolbarDemo',
-            title: '用户数据表',
+            title: '员工数据表',
             cols: [
                 [
-                    { type: 'checkbox', fixed: 'left' }, { field: 'empId', width: 100, title: '员工ID', sort: true }, { field: 'empName', title: '姓名', minWidth: 100 }, { field: 'empPwd', title: '密码' }, { field: 'empSex', width: 80, title: '性别' }, { field: 'empTel', title: '手机' }, { field: 'empLevel', title: '员工身份' }, { field: 'empAddress', title: '联系地址' }, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+                    { type: 'checkbox', fixed: 'left' }
+                    , { field: 'empid', width: 100, title: '员工ID', sort: true }
+                    , { field: 'empname', title: '姓名', minWidth: 100 }
+                    , { field: 'empphone', title: '电话' }
+                    , { field: 'empsex', width: 80, title: '性别' }
+                    , { field: 'emptryday', title: '入职时间' }
+                    , { field: 'empbirthday', title: '员工生日' }
+                    , { field: 'emppicture', title: '头像' }
+                    , { field: 'emppstatus', title: '状态' }
+                    , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
                 ]
             ],
-            page: true
+            page: true,
+            id : 'testReload'
+        });
+
+        //嵌入日期
+        laydate.render({
+            elem: '#time1'
+            ,position: 'static'
+            ,change: function(value, date){ //监听日期被切换
+                lay('#view').html(value);
+            }
+        });
+
+        laydate.render({
+            elem: '#time2'
+            ,position: 'static'
+            ,change: function(value, date){ //监听日期被切换
+                lay('#view1').html(value);
+            }
+        });
+
+        //表格数据重载，模糊查询
+        var $ = layui.$, active = {
+            reload : function() {
+                var demoReload = $('#demoReload');
+
+                //执行重载
+                table.reload('testReload', {
+                    page : {
+                        curr : 1
+                        //重新从第 1 页开始
+                    },
+                    where : {
+                        //这里传值给servlet
+                        content : demoReload.val()
+                    }
+                });
+            }
+        };
+        $('.demoTable .layui-btn').on('click', function() {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
         });
 
         //头工具栏事件
@@ -108,6 +224,31 @@
 //							layer.msg(checkStatus.isAll ? '全选' : '未全选');
 //							break;
 //					};
+        });
+
+        //ajax添加提交事件,  此处搭配添加操作弹出层
+        layui.form.on('submit(demo1)', function(data) {
+
+            $.ajax({
+                type : "post",
+                url : "addEmployee",
+                data : JSON.stringify(data.field),
+                contentType : "application/json",
+                success : function(cm) {
+                    layer.msg(cm.msg, {
+                        time : 1000,
+                    },function() {
+                        if (cm.msg == "添加成功") {
+                            layer.closeAll();
+                            location.reload('testReload');
+                        }
+                    });
+
+                }
+
+            });
+
+            //return false;
         });
 
         //监听行工具事件

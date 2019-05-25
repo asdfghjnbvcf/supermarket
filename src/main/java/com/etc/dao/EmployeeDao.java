@@ -2,7 +2,10 @@ package com.etc.dao;
 
 import com.etc.entity.Employee;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * 文件名:com.etc.entity.EmployeeDao
@@ -30,4 +33,11 @@ public interface EmployeeDao {
 
     //根据员工ID修改员工信息（参数可变）
     int updateByPrimaryKey(Employee record);
+
+    //员工分页查询
+    List<Employee> selectEmployeeByPage(@Param("start") Integer start, @Param("pageSize") Integer pageSize,
+                                       @Param("content") String content);
+
+    //员工数量
+    int selectCount(@Param("content") String content);
 }

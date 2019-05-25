@@ -36,6 +36,29 @@
       #{empbirthday,jdbcType=DATE}, #{emppicture,jdbcType=VARCHAR}, #{empstatus,jdbcType=INTEGER}
       )
   </insert>
+  <!-- 分页+模糊查询 -->
+  <select id="selectEmployeeByPage" resultMap="BaseResultMap">
+    select
+    *
+    from employee
+    <where>
+      <if test="content!=null">
+        empname like concat("%",#{content},"%")
+      </if>
+
+    </where>
+    LIMIT #{start},#{pageSize}
+  </select>
+
+  <!-- 查询记录数 -->
+  <select id="selectCount" resultType="java.lang.Integer">
+    select count(1)
+    from employee
+    <where>
+      empname like concat("%",#{content},"%")
+    </where>
+  </select>
+
   <insert id="insertSelective" parameterType="com.etc.entity.Employee">
     insert into employee
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -64,7 +87,7 @@
         emppicture,
       </if>
       <if test="empstatus != null">
-        empstatus,
+        empstatus
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
