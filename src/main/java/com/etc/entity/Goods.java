@@ -12,8 +12,11 @@ public class Goods implements Serializable{
     //商品ID
     private Integer goodsid;
 
-    //商品所属三级分类
+    //商品所属二级分类
     private Integer twolevelid;
+
+    //商品所属二级分类名
+    private String twolevelname;
 
     //商品名字
     private String goodsname;
@@ -30,13 +33,31 @@ public class Goods implements Serializable{
     public Goods() {
     }
 
-    public Goods(Integer goodsid, Integer twolevelid, String goodsname, Double goodsprice, String goodstitle, String goodsinformation) {
+    public Goods ( Integer goodsid, Integer twolevelid, String twolevelname, String goodsname, Double goodsprice, String goodstitle, String goodsinformation ) {
+        this.goodsid = goodsid;
+        this.twolevelid = twolevelid;
+        this.twolevelname = twolevelname;
+        this.goodsname = goodsname;
+        this.goodsprice = goodsprice;
+        this.goodstitle = goodstitle;
+        this.goodsinformation = goodsinformation;
+    }
+
+    public Goods( Integer goodsid, Integer twolevelid, String goodsname, Double goodsprice, String goodstitle, String goodsinformation) {
         this.goodsid = goodsid;
         this.twolevelid = twolevelid;
         this.goodsname = goodsname;
         this.goodsprice = goodsprice;
         this.goodstitle = goodstitle;
         this.goodsinformation = goodsinformation;
+    }
+
+    public String getTwolevelname () {
+        return twolevelname;
+    }
+
+    public void setTwolevelname ( String twolevelname ) {
+        this.twolevelname = twolevelname;
     }
 
     public Integer getGoodsid() {

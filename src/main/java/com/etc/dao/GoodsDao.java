@@ -1,8 +1,12 @@
 package com.etc.dao;
 
 import com.etc.entity.Goods;
+import com.etc.entity.TwoLevel;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * 文件名:com.etc.entity.GoodsDao
@@ -30,4 +34,10 @@ public interface GoodsDao {
 
     //根据商品ID修改商品信息（参数可变）
     int updateByPrimaryKey(Goods record);
+
+    //得到所有商品并分页查询
+    List<Goods> listGoodsByPage( @Param("start") int start, @Param("pageSize")int pageSize, @Param("content")String content);
+
+    //得到所有商品并分页查询
+    int getTotal(String content);
 }
