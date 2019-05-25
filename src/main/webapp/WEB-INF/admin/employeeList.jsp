@@ -75,21 +75,19 @@
             </div>
         </div>
 
-        <div class="layui-form-item" id="time1">
+        <div class="layui-form-item">
             <label class="layui-form-label">入职时间</label>
             <div class="layui-input-block">
-                <select name="empentryday" id="empentryday" lay-filter="aihao">
-                    <span id="view"></span>
-                </select>
+                <input type="text" class="layui-input" name="empentryday" id="empentryday">
+
             </div>
         </div>
 
-        <div class="layui-form-item" id="time2">
+        <div class="layui-form-item">
             <label class="layui-form-label">生日时间</label>
             <div class="layui-input-block">
-                <select name="empbirthday" id="empbirthday" lay-filter="aihao">
-                    <span id="view1"></span>
-                </select>
+                <input type="text" class="layui-input" name="empbirthday" id="empbirthday">
+
             </div>
         </div>
 
@@ -137,8 +135,23 @@
 
 <script src="${path}/layuiadmin/layui/layui.js"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-
+<script src="${path}/layuiadmin/laydate/laydate.js"></script>
 <script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //嵌入日期
+        laydate.render({
+            elem: 'empentryday'
+
+        });
+
+        laydate.render({
+            elem: '#empbirthday'
+
+        });
+    });
+
     layui.use('table', function() {
         var table = layui.table;
 
@@ -146,7 +159,7 @@
             elem: '#test'
             //  ,url:'/test/table/demo1.json'
             ,
-            url: 'admin.action/listEmployee' //数据接口
+            url: 'listEmployee' //数据接口
             ,
             toolbar: '#toolbarDemo',
             title: '员工数据表',
@@ -166,23 +179,6 @@
             ],
             page: true,
             id : 'testReload'
-        });
-
-        //嵌入日期
-        laydate.render({
-            elem: '#time1'
-            ,position: 'static'
-            ,change: function(value, date){ //监听日期被切换
-                lay('#view').html(value);
-            }
-        });
-
-        laydate.render({
-            elem: '#time2'
-            ,position: 'static'
-            ,change: function(value, date){ //监听日期被切换
-                lay('#view1').html(value);
-            }
         });
 
         //表格数据重载，模糊查询

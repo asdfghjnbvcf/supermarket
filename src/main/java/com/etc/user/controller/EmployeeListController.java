@@ -23,10 +23,9 @@ public class EmployeeListController {
     @Autowired
     private EmployeeService employeeService;
 
-
     @RequestMapping(value = "listEmployee")
     @ResponseBody
-    public String listEmployee(Integer page, Integer pageSize, String content, Model model){
+    public PageData<Employee> listEmployee(Integer page, Integer pageSize, String content){
         if (content == null) {
             content = "";
         }
@@ -34,9 +33,9 @@ public class EmployeeListController {
         PageData<Employee> pd = employeeService.getEmployeeByPage(1, 10, content);
         List<Employee> list = pd.getData();
 
-        model.addAttribute("list", list);
-
-        return "admin/employeeList";
+       pd.setCode(0);
+       pd.setMsg("请求成功");
+       return pd ;
     }
 
     @RequestMapping(value = "updateEmployee")
