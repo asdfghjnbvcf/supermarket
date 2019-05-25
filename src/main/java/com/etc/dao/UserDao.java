@@ -2,6 +2,7 @@ package com.etc.dao;
 
 import com.etc.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -36,4 +37,12 @@ public interface UserDao {
 
     //用户注册保存信息的方法
     boolean saveUser(User user);
+
+    /**
+     * 根据用户手机号及密码查询数据库的持久层方法
+     * @param userphone 用户的手机号
+     * @param userpassword 用户的密码
+     * @return 查询到的用户对象
+     */
+    User getUserByUserPhoneAndUserPassword(@Param("userphone") String userphone,@Param("userpassword") String userpassword);
 }

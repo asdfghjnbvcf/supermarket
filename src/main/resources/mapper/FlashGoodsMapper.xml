@@ -109,4 +109,15 @@
     where flashsaleid =  #{fsid,jdbcType=INTEGER}
   </select>
 
+  <!--根据秒杀商品ID，查询该商品的详情信息-->
+  <select id="getFlashGoodsMessageByFlashGoodsId" parameterType="java.lang.Integer" resultType="com.etc.entity.po.FlashGoodsMessagePo">
+    select
+    gs.goodsid as goodsid, gs.twolevelid as twolevelid,gs.goodsname as goodsname,gs.goodsprice, gs.goodstitle as goodstitle,gs.goodsinformation as goodsinformation,
+    ge.pictureurl as pictureurl,ge.pictureid as pictureid,fs.flashsaleid as flashsaleid,fs.flashgoodsprice as flashgoodsprice,fs.flashgoodsid as flashgoodsid,
+    fk.stocknum as stocknum,fk.sellnum as sellnum
+    from goods as gs ,goodspicture as ge,flashgoods as fs,flashgoodsstock as fk
+    where  gs.goodsid = fs.goodsid and gs.goodsid=ge.goodsid and fk.flashgoodsid =fs.flashgoodsid   and fs.flashgoodsid=#{fgid,jdbcType=INTEGER}
+    group by ge.goodsid
+  </select>
+
 </mapper>

@@ -148,4 +148,7 @@
         insert into user(username,userpassword,userphone,userregisday)
            values(#{username},#{userpassword},#{userphone},#{userregisday})
     </insert>
+    <select id="getUserByUserPhoneAndUserPassword" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from  user  where userphone=#{userphone} AND userpassword = #{userpassword} AND userstatus=0
+    </select>
 </mapper>
