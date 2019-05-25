@@ -13,7 +13,7 @@ public class FlashGoodsKey extends BasePrefix{
     }
 
     //秒杀商品列表前缀与过期时间
-    public static FlashGoodsKey  getFlashGoodsList = new FlashGoodsKey(60, "fgl");
+    public static FlashGoodsKey  getFlashGoodsList = new FlashGoodsKey(25, "fgl");
 
     //秒杀商品详情前缀与过期时间
     public static FlashGoodsKey  getFlashGoodsDetail = new FlashGoodsKey(60, "fgd");

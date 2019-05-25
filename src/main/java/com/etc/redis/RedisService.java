@@ -38,6 +38,8 @@ public class RedisService {
         }
     }
 
+
+
     //设置对象，向redis中写入数据
     public <T> boolean set(KeyPrefix prefix, String key,  T value) {
         Jedis jedis = null;
@@ -59,6 +61,39 @@ public class RedisService {
         }finally {
             returnToPool(jedis);
         }
+    }
+
+    /**
+     * 设置 list
+     * @param <T>
+     * @param key
+     *
+     */
+    public <T> Boolean setList(KeyPrefix prefix, String key,List<T> list){
+        Jedis jedis = null;
+        try {
+            String realKey  = prefix.getPrefix() + key;
+            int seconds =  prefix.expireSeconds();
+            jedis =  jedisPool.getResource();
+            jedis.setex(realKey.getBytes(),seconds,ObjectTranscoder.serialize(list));
+        } finally {
+            returnToPool(jedis);
+        }
+        return true;
+    }
+    /**
+     * 获取list
+     * @param <T>
+     * @param key
+     * @return list
+     */
+    public <T> List<T> getList(KeyPrefix prefix, String key){
+        String realKey  = prefix.getPrefix() + key;
+        Jedis jedis = null;
+        jedis =  jedisPool.getResource();
+        byte[] in = jedis.get(realKey.getBytes());
+        List<T> list = (List<T>) ObjectTranscoder.deserialize(in);
+        return list;
     }
 
     //判断key是否存在
@@ -117,6 +152,7 @@ public class RedisService {
         }
     }
 
+    //删除缓存中的数据
     public boolean delete(KeyPrefix prefix) {
         if(prefix == null) {
             return false;

@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.11.224:3306/supermarket?characterEncoding=UTF8
+    url: jdbc:mysql://localhost:3306/supermarket?characterEncoding=UTF8
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
@@ -40,7 +40,6 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 redis:
-  password:
   poolMaxTotal: 150
   poolMaxIdel: 50
   poolMaxWait: 10
