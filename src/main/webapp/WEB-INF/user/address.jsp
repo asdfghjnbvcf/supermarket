@@ -26,10 +26,14 @@
 </head>
 
 <body>
+<article>
+    <div class="mt-logo">
 <!--头 -->
 <header>
 <jsp:include page="header.jsp"></jsp:include>
 </header>
+    </div>
+</article>
 
 <div class="nav-table">
     <div class="long-title"><span class="all-goods">全部分类</span></div>

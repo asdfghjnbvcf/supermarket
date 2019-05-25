@@ -22,4 +22,14 @@ public interface UserService {
      * @return 是否成功
      */
     boolean saveUser(User user);
+
+    /**
+     * 用户登录中查询用户的方法
+     * @param userphone  用户的手机号
+     * @param userpassword 用户的密码
+     * @return 查询到的用户
+     */
+    User getUserByUserPhoneAndUserPassword(String userphone, String userpassword);
+
+
 }

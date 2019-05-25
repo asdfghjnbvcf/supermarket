@@ -38,4 +38,13 @@ public class FlashGoodsController {
         return Result.success(listpo);
     }
 
+    //根据秒杀商品ID查询该秒杀商品的具体信息
+    @RequestMapping("showFlashGoodsMessageByFlashGoodsId")
+    @ResponseBody
+    public Result<FlashGoodsMessagePo> showFlashGoodsMessageByFlashGoodsId(@RequestParam(value = "flashGoodsId") Integer flashGoodsId){
+
+        return null;
+    }
+
+
 }
